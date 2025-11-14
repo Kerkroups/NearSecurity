@@ -74,3 +74,6 @@ headers: {"Content-type": "application/json"},
 body: JSON.stringify({var1:1, var2:"2"})
 });
 ```
+
+## Использованые источники:
+https://systemoverlord.com/2016/08/24/posting-json-with-an-html-form.html
