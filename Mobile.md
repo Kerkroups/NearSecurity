@@ -6,6 +6,7 @@
 ## DECOMPILE APK  
 1) ```apktool d file.apk```  
 2) ```d2j-dex2jar file.apk```
+3) ```jadx -d app_src file.apk```
 
 ## GREP CODE  
 
@@ -17,3 +18,10 @@
 
 ## SERVICES  
 
+## DROZER  
+
+**Package information**: ```run app.package.info -a package_name```  
+**Identify attacke surface**: ```run app.package.attacksurface package_name```  
+**Activity info**: ```run app.activity.info -a package_name```  
+**Service information**: ```run app.service.info -a package_name```  
+**Broadcast receivers information**: ```run app.broadcast.info -a package_name```  
