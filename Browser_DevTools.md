@@ -10,6 +10,8 @@
 
 **LightHouse**: снять все настройки оставив лишь "Best practices" и "Desktop".  
 
+**Plugin for recon DOM XSS**: https://github.com/filedescriptor/untrusted-types  
+
 ## Client-side exploitation:  
 
 **Find DOM XSS via DevTools**: https://youtu.be/CNNCCgDkt5k?si=6DkUv5WcJmBYfWI2  
