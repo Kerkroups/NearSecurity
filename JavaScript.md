@@ -12,4 +12,4 @@
 
 **Find DOM XSS via DevTools**: https://youtu.be/CNNCCgDkt5k?si=6DkUv5WcJmBYfWI2  
 
-**Referrer leak**: https://youtu.be/uDigwNal7GQ?si=qCswM_7IlInaZO3R  
+**Referer leak**: https://youtu.be/uDigwNal7GQ?si=qCswM_7IlInaZO3R  
