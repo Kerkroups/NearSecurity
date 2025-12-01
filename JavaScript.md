@@ -9,3 +9,5 @@
 **Browser memory dump**:  создав snapshot можно исследовать память на наличие API запросов.  
 
 **LightHouse**: снять все настройки оставив лишь "Best practices" и "Desktop".  
+
+**Find DOM XSS via DevTools**: https://youtu.be/CNNCCgDkt5k?si=6DkUv5WcJmBYfWI2
