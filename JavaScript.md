@@ -121,7 +121,7 @@ true; //return; true;
 return true; // return true;
 ```
 
-
+**JavaScript свободно преобразует значения из одного типа в другой**
 
 
 
