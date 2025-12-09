@@ -239,5 +239,38 @@ undefined - применяется для указания на отсутсьв
 
 null и undefined служат признаком отсутствия значения. Операция "==" считает их равными. Для их различия применяется операция "===".  
 
+**Явные преобразования**  
+```
+x + "" //String(x)
++x //Number(x)
+x-0 //Number(x)
+!!x //Boolean(x)
+```
+Метод toString() в классе Number, принимает необязательный аргумент, где задается основание системы счисления для преобразования.  
+```
+let n = 17;
+let binary = "0b" + n.toString(2); //binary == "0b10001"
+let octal = "0o" + n.toString(8); //octal == "0o21"
+let hex = "0x" + n.toString(16); //hex == "0x11"
+```  
+parseInt() и parseFloat() - это глобальные функции, не методы какого-то класса.  
+```
+parseInt("3 blind mice"); //3
+parseFloat(" 3.14 meters"); //3.14
+parseInt("-12.34"); //-12
+parseInt("0xFF"); //255
+parseInt("0xff"); //255
+parseInt("-0XFF"); //-255
+parseFloat(".1"); //0.1
+parseInt("0.1"); //0
+parseInt(".1"); //NaN
+parseFloat("$72.47"); //NaN
+
+parseInt("11", 2); //3
+parseInt("ff", 16); //255
+parseInt("zz", 36); //1295
+parseInt("077", 8); //63
+parseInt("077", 10); //77
+```
 
 
