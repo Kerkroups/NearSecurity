@@ -34,6 +34,17 @@ v-html //Vue.js
 ## postMessage attacks
 
 ## Prototype pollution  
+**Unfase functions**:  
+```
+Object.assign()
+```
+
+**Malicious keys**:  
+```
+__proto__
+constructor.prototype
+prototype
+```  
 
 ## Client-side path traversal  
 
