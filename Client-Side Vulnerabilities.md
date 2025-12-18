@@ -34,6 +34,7 @@ v-html //Vue.js
 ## postMessage attacks
 
 ## Prototype pollution  
+Prototype pollution позволяет атакующему переопределить или добавить свойства в объект прототип (зачастую это Object.prototype), с момощью специальных ключей ```__proto__```, ```constructor``` или ```prototype```. 
 **Unfase functions**:  
 ```
 Object.assign()
