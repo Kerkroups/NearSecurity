@@ -60,7 +60,7 @@ https://gitlab.com/[namespase]/myproject1/-/pipelines/new?ref=dev&var[foo]=bar&f
 https://docs.gitlab.com/ci/jobs/job_control/#create-a-job-that-must-be-run-manually 
 
 **Skip pipeline**  
-Для push commit без запуска pipeline необходимо добавить "[ci skip]" или "[skip ci]" в любом регистре в commit message. В качестве альтернативы, в git 2.10 или более поздних версиях можно использовать опцию "ci.skip" для push. "ci.skip" не не пропускает MR pipelines (заускает такие pipeline).  
+Для push commit без запуска pipeline необходимо добавить "[ci skip]" или "[skip ci]" в любом регистре в commit message. В качестве альтернативы, в git 2.10 или более поздних версиях можно использовать опцию "ci.skip" для push. "ci.skip" не пропускает MR pipelines (заускает такие pipeline).  
 
 Когда пропускаем pipeline происходит:  
   - Создается пустой pipeline без этапов и заданий. Pipeline может отображаться в UI и API ответах.  
