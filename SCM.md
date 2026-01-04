@@ -18,3 +18,28 @@
 
 **Если выполнить "commit" в бранч, которого нет, то запустятся job's без "rules"**  
 
+## PIPELINES  
+
+Pipelines могут запускаться автоматически при определенных событиях, например при "push" в бранч, создании MR или по расписанию. Также могут запускаться вручную.  
+
+Pipeline описывается в gitlab-ci.yml и состоит из job.  
+
+**Типы pipelines**  
+  - Basic pipeline - выполняет все job'ы на каждом этапе одновременно, заме переходит к следующему этапу.
+  - Pipelines которые используют ключевое слово "needs" - работают на основе зависимостей между заданиями (jobs) и могут выполнятся быстрее чем basic pipeline.
+  - Merge request pipeline - запускается только для MR а не для каждого commit.
+  - Merged results pipeline - ?
+  - Merge trains - используются Merged results pipeline для объединения результатов один за другим.
+  - Parent-child pipelines - разбивает сложные pipelines в один родительский pipeline, который запускает несколько дочерних pipelines, которые работают в одном проекте с одним и тем же SHA.
+  - Multi-project pipelines - комбинирует pipelines из разних проектов в единый pipeline.
+
+При запуске pipeline вручную мы можем посмотреть все переменные среды. Требование: пользователь должен иметь роль Owner.  
+
+View variable names = Guest  
+View variable values = Developer  
+Configure visibility setting = Owner  
+
+Для защиты данных чувствительных переменных, таких как учетные данные или токены, нужно использовать **"protected variables"** или **"external secrets management"** вметсо мануального определения переменных (**"Manual variables"**) во время ручного запуска pipeline.  
+
+**Запуск pipeline с помощью URL query string**  
+
