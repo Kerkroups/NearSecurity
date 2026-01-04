@@ -99,6 +99,9 @@ Merge request pipeline выполняет только код в source branch �
   - Запускается в fork, не в родительском проекте.
   - Использует конфигурацию CI/CD проекта fork, ресурсы и переменные CI/CD проекта.
 
+**Parent-child pipeline**  
+//TODO  
+https://docs.gitlab.com/ci/pipelines/downstream_pipelines/#parent-child-pipelines  
   
 ## GITLAB REST API  
 https://docs.gitlab.com/api/rest/  
