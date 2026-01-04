@@ -28,7 +28,7 @@ Pipeline описывается в gitlab-ci.yml и состоит из job.
   - Basic pipeline - выполняет все job'ы на каждом этапе одновременно, заме переходит к следующему этапу.
   - Pipelines которые используют ключевое слово "needs" - работают на основе зависимостей между заданиями (jobs) и могут выполнятся быстрее чем basic pipeline.
   - Merge request pipeline - запускается только для MR а не для каждого commit.
-  - Merged results pipeline - ?
+  - Merged results pipeline - тестирует результат слияния исходной и целевой веток.  
   - Merge trains - используются Merged results pipeline для объединения результатов один за другим.
   - Parent-child pipelines - разбивает сложные pipelines в один родительский pipeline, который запускает несколько дочерних pipelines, которые работают в одном проекте с одним и тем же SHA.
   - Multi-project pipelines - комбинирует pipelines из разних проектов в единый pipeline.
@@ -81,3 +81,24 @@ gitlab.example.com/my-group/my-project/-/pipelines/latest
 ```
 gitlab.example.com/my-group/my-project/-/pipelines/<branch>/latest
 ```
+
+**Merge request pipeline**  
+
+Этот pipeline запускается когда:  
+  - Создается запрос на слияние из исходного branch, который имеет один или несколько commits.
+  - Push commits для создания MR.
+  - Merge Requests -> Pipelines -> Run pipeline.
+
+Merge request pipeline выполняет только код в source branch игнорируя код целевой ветки (main). Помечается лейблом "merge request" в списке pipelines. Для запуска таких pipeline необходимо иметь роль как минимум Developer для исходного проекта. Репозиторий должен быть внутри GitLab, а не внешним репозиторием.  
+
+Для использования такого типа pipeline используется запись ```CI_PIPELINE_SOURCE == "merge_request_event"``` в файле gitlab-ci.yml.  
+
+Внешние участники, которые работают в fork не могут создавать pipelines в родительском проекте.  
+
+Запрос на слиение из fork, отправленный в родительский проект, запускает pipeline? который:  
+  - Запускается в fork, не в родительском проекте.
+  - Использует конфигурацию CI/CD проекта fork, ресурсы и переменные CI/CD проекта.
+
+  
+
+
