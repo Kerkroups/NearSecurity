@@ -100,5 +100,8 @@ Merge request pipeline выполняет только код в source branch �
   - Использует конфигурацию CI/CD проекта fork, ресурсы и переменные CI/CD проекта.
 
   
+## GITLAB REST API  
+https://docs.gitlab.com/api/rest/  
+
 
 
