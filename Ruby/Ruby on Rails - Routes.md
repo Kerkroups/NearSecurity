@@ -82,5 +82,25 @@ end
 get '/dashboard', to: 'management#dashboard
 get '/performance', to: 'management#performance'
 ```
-- Shallow Nesting:
+- Shallow Nesting:  
 // TODO
+
+**Разделения маршрутов по разным файлам**
+Если файл маршрутов слишком большой, можно разбить его на несколько файлов и включить каждый из них с помощью метода ```require_relative``` языка Ruby:  
+- config/routes.rb:
+```
+YourAppName::Application.routes.draw do
+  require_relative 'routes/admin_routes'
+  require_relative 'routes/sidekiq_routes'
+  require_relative 'routes/api_routes'
+  require_relative 'routes/your_app_routes'
+end
+```
+- config/routes/api_routes.rb:
+```
+YourAppName::Application.routes.draw do
+  namespace :api do
+  # ...
+  end
+end
+```
