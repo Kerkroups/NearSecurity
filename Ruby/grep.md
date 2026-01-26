@@ -2,3 +2,7 @@
 ```
 eval,system,exec,spawn,open,Process.exec,Process.spawn,IO.binread,IO.binwrite,IO.foreach,IO.popen,IO.read,IO.readlines,IO.write
 ```
+
+## XSS:
+```html_safe```
+
