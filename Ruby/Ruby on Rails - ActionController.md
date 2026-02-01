@@ -14,3 +14,35 @@ class ApplicationController < ActionController::Base
 end
 ```
 Такой запрос попадает в действие контроллера. Они могут возвращать ответ самостоятельно и полностью обходить действие. Другим распространенным использованием перед фильтров является проверка аутентификации пользователя перед предоставлением ему доступа к действию, предназначенному для обработки его запроса. Также их используют для загрузки ресурса из базы данных, проверки прав доступа к ресурсу или управления перенаправлениями в других обстоятельствах.  
+
+## Controller (basic)  
+```
+class UserController < ApplicationController
+  def index
+    respond_to do |format|
+      format.html {render html: "Hello, World!"}
+    end
+  end
+end
+```
+В файле ```config/routes.rb```:  
+```
+resources :users, only [index]
+```
+Страница отобразит "Hello, World!" при запросе на /users.  
+
+## ПАРАМЕТРЫ  
+```
+class UserController < ApplicationController
+  def index
+    respond_to do |format|
+      format.html do
+        if params[:name] == "John"
+          render html: "Hello, John!"
+        end
+      end
+    end
+  end
+end
+```
+Страница отобразит "Hello, John!" при таком запросе: **/users?name=john**  
