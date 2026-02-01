@@ -6,3 +6,14 @@ eval,system,exec,spawn,open,Process.exec,Process.spawn,IO.binread,IO.binwrite,IO
 ## XSS:
 ```html_safe```
 
+## CSRF:  
+```skip_before_action :verify_authenticity_token```  
+
+## SQL:  
+```.where, sum()```  
+
+## MASS ASSIGNMENT:  
+Pattern:
+```User.create(params[:user])```  
+Defence: нужно явно указать список разрешенных параметров.    
+```params.require(:user).permit(:name, :email)```  
