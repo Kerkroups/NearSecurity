@@ -109,3 +109,10 @@ AWS Inspector, Azure Securuty Center Qualys, Cloud Security Scanner - серви
   - Первый вариант: использование _ролей_.
   - Второй вариант: использование токен-сервисов (AWS Security Token Service, STS).
 
+## Модильная безопасность
+
+//TODO;
+
+## Инструменты для обеспечения безопасности в облаке  
+
+//TODO;
