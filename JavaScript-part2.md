@@ -10,4 +10,8 @@ import fs from "fs";
 const filePath = process.argv[2];
 const data = fs.readFileSync(filePath);
 ```
+## Деобфускация JS:  
+ - https://obf-io.deobfuscate.io/
+ - https://matthewfl.com/unPacker.html
+
 
