@@ -19,6 +19,19 @@
 - Direct string concatenation in SQL queries  
 - Use of .format() or % formatting with user input
 
+## NoSQL injection:  
+**MongoDB with eval**:  
+```language:python content:"eval(" OR content:"exec(" content:"find(" OR content:"insert_one(" path:/.*\.py$/```
+
+**$where operator usage**:  
+```language:python content:"$where" OR content:"mapReduce" path:/.*\.py$/ (mongodb OR mongo)```  
+
+**Unparameterized NoSQL queries**:  
+```language:python content:".find(" OR content:".insert_one(" content:"f\"" OR content:"+" path:/.*\.py$/ (mongo OR nosql)```  
+
+**Unsafe aggregation pipelines**:  
+```language:python content:"aggregate(" OR content:"pipeline" content:"$lookup" content:"f\"" OR content:"format(" path:/.*\.py$/```  
+
 ## Command Injection & OS Command Injection:  
 ```language:python symbol:system OR symbol:exec OR symbol:eval OR symbol:subprocess content:"shell=True" OR content:"os.system" OR content:"eval(" OR content:"exec("```  
 **High-risk functions**:  
