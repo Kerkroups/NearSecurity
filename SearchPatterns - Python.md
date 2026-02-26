@@ -121,6 +121,19 @@
 
 ## Insecure deserialization with JSON:  
 ```language:python content:"json.loads(" OR content:"json.load(" path:/.*\.py$/ NOT content:"JSONDecoder"```  
+
+**Custom JSONDecoder with object creation**:  
+```language:python symbol:JSONDecoder content:"json.loads" path:/.*\.py$/ NOT content:"dict" NOT content:"parse_int"```  
+
+**eval/exec within JSON processing**:  
+```language:python content:"json.load" OR content:"json.loads" content:"eval(" OR content:"exec(" path:/.*\.py$/```  
+
+**Object instantiation from JSON**:  
+```language:python content:"json.loads" content:"__init__" OR content:"__new__" OR content:"__call__" path:/.*\.py$/```  
+
+**Unsafe object_hook in JSON**:  
+```language:python content:"object_hook=" path:/.*\.py$/ NOT content:"dict" NOT content:"default_hook"```  
+
 **Check for**:  
 - Custom JSON decoders with object instantiation
 - Unsafe object creation from JSON
