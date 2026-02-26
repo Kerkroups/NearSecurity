@@ -34,6 +34,25 @@
 
 ## Command Injection & OS Command Injection:  
 ```language:python symbol:system OR symbol:exec OR symbol:eval OR symbol:subprocess content:"shell=True" OR content:"os.system" OR content:"eval(" OR content:"exec("```  
+
+**os.system with formatting**:  
+```language:python content:"os.system(" content:"f\"" OR content:"format(" OR content:"%" OR content:"+" path:/.*\.py$/```  
+
+**subprocess.call/run with shell=True**:  
+```language:python content:"subprocess" content:"shell=True" path:/.*\.py$/ NOT content:"# safe" NOT content:"args=["```  
+
+**popen with shell=True**:  
+```language:python content:"popen(" OR content:"Popen(" content:"shell=True" path:/.*\.py$/```
+
+**eval and exec usage**:  
+```language:python symbol:eval OR symbol:exec path:/.*\.py$/ NOT content:"__pycache__"```  
+
+**Dangerous template-based commands**:  
+```language:python content:"\.format(" OR content:"f\"" content:"system" OR "subprocess" OR "popen" path:/.*\.py$/```  
+
+**Shell builtin exposure**:  
+```language:python content:"__import__" OR content:"exec(" OR content:"eval(" path:/.*\.py$/ (command OR shell OR bash)```  
+
 **High-risk functions**:  
 - os.system()
 - subprocess.call() with shell=True
