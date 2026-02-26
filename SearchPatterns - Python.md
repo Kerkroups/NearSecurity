@@ -1,5 +1,21 @@
 ## SQL injection:  
 ```language:python content:"format(" OR content:"%" OR content:"concat" path:/.*\.py$/ (database OR query OR sql)```  
+
+**Direct string formatting in database queries**:  
+```language:python content:"SELECT" content:"format(" OR content:"+{" OR content:"f\"" path:/.*\.py$/```  
+
+**String concatenation with database operations**:  
+```language:python content:"execute" OR content:"query" content:"+" OR content:"%" path:/.*\.py$/ (db OR database OR cursor)```  
+
+**Raw SQL with user input**:  
+```language:python content:"raw(" OR content:"cursor.execute" OR content:"engine.execute" path:/.*\.py$/ NOT content:"?"```  
+
+**Django ORM vulnerabilities**:  
+```language:python content:"filter(" OR content:"exclude(" content:"f\"" OR content:"format(" path:/.*\.py$/ (django)```  
+
+**SQLAlchemy raw SQL injection**:  
+```language:python content:"text(" OR content:"literal_column" content:"f\"" OR content:"format(" path:/.*\.py$/```  
+
 - Direct string concatenation in SQL queries  
 - Use of .format() or % formatting with user input
 
