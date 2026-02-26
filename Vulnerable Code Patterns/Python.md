@@ -28,3 +28,22 @@ collection.insert_one(json.loads(user_data))  # Dangerous
 # PyMongo with user control
 query = {"$where": f"this.username == '{username}'"}
 ```  
+
+## Code injection & OS Command injection:  
+```
+- Direct os.system
+os.system(f"curl {url}")
+os.system("ping " + hostname)
+
+- Subprocess with shell=True
+subprocess.call("rm -rf " + directory, shell=True)
+subprocess.run(command_string, shell=True)
+
+- Template-based commands
+template = "ssh user@{host} 'rm {file}'"
+os.system(template.format(host=user_host, file=user_file))
+
+- eval/exec with external input
+exec(user_code)
+eval(user_expression)
+```  
