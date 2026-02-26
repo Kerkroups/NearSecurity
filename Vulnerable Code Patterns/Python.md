@@ -48,7 +48,7 @@ exec(user_code)
 eval(user_expression)
 ```
 
-## Unsafe pickle deserialization:  
+## Unsafe pickle and YAML deserialization:  
 ```
 - Direct pickle.loads
 import pickle
@@ -62,4 +62,15 @@ with open(untrusted_file, 'rb') as f:
 class RiskyUnpickler(pickle.Unpickler):
     def find_class(self, module, name):
         return super().find_class(module, name)
-```  
+```
+
+```
+# Vulnerable:
+import yaml
+data = yaml.load(user_yaml)
+config = yaml.unsafe_load(config_string)
+
+# Safe:
+data = yaml.safe_load(user_yaml)
+data = yaml.load(user_yaml, Loader=yaml.SafeLoader)
+```
