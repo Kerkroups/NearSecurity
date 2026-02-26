@@ -74,3 +74,17 @@ config = yaml.unsafe_load(config_string)
 data = yaml.safe_load(user_yaml)
 data = yaml.load(user_yaml, Loader=yaml.SafeLoader)
 ```
+
+## Unsafe JSON deserialization:  
+```
+# Vulnerable custom JSON decoder
+class BadDecoder(json.JSONDecoder):
+    def decode(self, s):
+        obj = super().decode(s)
+        if 'py_type' in obj:
+            return eval(f"({obj['py_type']})({obj['value']})")
+        return obj
+
+# Object instantiation from JSON
+user_obj = json.loads(data, cls=CustomObjectDecoder)
+```  
