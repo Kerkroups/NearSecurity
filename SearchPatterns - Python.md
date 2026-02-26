@@ -61,6 +61,37 @@
 
 ## Unsafe deserialization:  
 ```language:python content:"pickle.loads" OR content:"pickle.load" OR content:"yaml.load" OR content:"json.loads" path:/.*\.py$/```  
+
+**pickle.loads with user data**:  
+```language:python content:"pickle.loads(" OR content:"pickle.load(" path:/.*\.py$/ NOT content:"safe" NOT content:"restricted"```  
+
+**Unsafe pickle usage in APIs**:  
+```language:python content:"pickle" content:"request" OR content:"user_input" OR content:"data" path:/.*\.py$/```  
+
+**Custom Unpickler without restrictions**:  
+```language:python symbol:Unpickler OR symbol:loads OR symbol:load content:"pickle" path:/.*\.py$/ NOT content:"find_class" NOT content:"RestrictedUnpickler"```  
+
+**Pickle in caching layers**:  
+```language:python content:"pickle" content:"cache" OR content:"memcached" OR content:"redis" path:/.*\.py$/```  
+
+**Pickle with file I/O from untrusted paths**:  
+```language:python content:"open(" content:"pickle" path:/.*\.py$/ (user_file OR untrusted OR download)```  
+
+**yaml.load without SafeLoader**:  
+```language:python content:"yaml.load(" path:/.*\.py$/ NOT content:"Loader=yaml.SafeLoader" NOT content:"Loader=yaml.BaseLoader"```  
+
+**yaml.unsafe_load**:  
+```language:python content:"yaml.unsafe_load(" path:/.*\.py$/```  
+
+**yaml with FullLoader in older versions**:  
+```language:python content:"yaml.load(" content:"FullLoader" path:/.*\.py$/ NOT content:"safe"```  
+
+**Direct YAML instantiation vulnerability**:  
+```language:python content:"!!python" OR content:"!!python/object" path:/.*\.yaml/ OR path:/.*\.yml/```  
+
+**YAML in configuration loading**:  
+```language:python content:"yaml.load" OR content:"yaml.unsafe_load" content:"config" OR "settings" OR "conf" path:/.*\.py$/```  
+
 **Vulnerable patterns**:  
 - pickle with untrusted data
 - yaml.load() without Loader=yaml.SafeLoader
