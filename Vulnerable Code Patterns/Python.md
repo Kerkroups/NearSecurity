@@ -46,4 +46,20 @@ os.system(template.format(host=user_host, file=user_file))
 - eval/exec with external input
 exec(user_code)
 eval(user_expression)
+```
+
+## Unsafe pickle deserialization:  
+```
+- Direct pickle.loads
+import pickle
+data = pickle.loads(user_input)
+
+- Pickle from untrusted sources
+with open(untrusted_file, 'rb') as f:
+    obj = pickle.load(f)
+
+- Custom unpickler with object instantiation
+class RiskyUnpickler(pickle.Unpickler):
+    def find_class(self, module, name):
+        return super().find_class(module, name)
 ```  
