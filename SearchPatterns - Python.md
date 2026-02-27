@@ -178,6 +178,37 @@ language:python (
 - Missing path validation
 - Unsafe file operations
 
+## SSRF & XXE:  
+**requests.get with user URL**:  
+```language:python content:"requests.get(" OR content:"requests.post(" content:"request\." path:/.*\.py$/ NOT content:"validate_url" NOT content:"whitelist"```  
+
+**urllib with user input**:  
+```language:python content:"urllib" OR content:"urlopen" content:"request\." path:/.*\.py$/ NOT content:"validate" NOT content:"allowed"```  
+
+**Webhook/callback URL from user**:  
+```language:python content:"webhook" OR content:"callback" OR content:"notify_url" content:"request\." path:/.*\.py$/ NOT content:"whitelist" NOT content:"validate_url"```  
+
+**File protocol usage**:  
+```language:python content:"file://" OR content:"gopher://" OR content:"dict://" path:/.*\.py$/ (requests OR urllib OR fetch)```  
+
+**Missing URL scheme validation**:  
+```language:python content:"requests" content:"http" OR "https" path:/.*\.py$/ NOT content:"scheme" NOT content:"startswith" NOT content:"whitelist"```  
+
+**Unsafe XML parsing**:  
+```language:python content:"ElementTree.parse(" OR content:"xml.parse(" OR content:"etree.parse(" path:/.*\.py$/ NOT content:"defusedxml" NOT content:"XMLParser"```  
+
+**lxml without XXE protection**:  
+```language:python content:"lxml" content:"parse(" path:/.*\.py$/ NOT content:"defusedxml" NOT content:"XMLParser(remove_blank_text=True)"```  
+
+**DTD processing enabled**:  
+```language:python content:"DTD" OR content:"ENTITY" content:"xml" path:/.*\.py$/ NOT content:"disable"```  
+
+**Unsafe XML deserialization**:  
+```language:python content:"xml" OR content:"ElementTree" content:"loads(" OR content:"load(" path:/.*\.py$/ NOT content:"defusedxml"```  
+
+**Missing defusedxml import**:  
+```language:python content:"ElementTree" OR content:"lxml" OR content:"minidom" path:/.*\.py$/ NOT content:"defusedxml"```  
+
 ## Insecure Authentication & Session Management:  
 ```language:python symbol:password OR symbol:token OR symbol:secret content:"hardcoded" OR content:"password=" OR content:"API_KEY" path:/.*\.py$/```  
 **Search for**:  
