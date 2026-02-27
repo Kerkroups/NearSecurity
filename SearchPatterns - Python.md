@@ -487,6 +487,20 @@ Search for:
 ```
 language:python content:"user_id" OR content:"request.args" path:/.*\.py$/ NOT content:"authorization" NOT content:"permission"
 ```
+**Direct query by user-controlled ID without authorization**:
+```language:python content:".get(" OR content:".query.get(" content:"user_id" OR content:"id" path:/.*\.py$/ NOT content:"current_user" NOT content:"permission" NOT content:"authorize"```  
+
+**Route handler with ID parameter missing access check**:  
+```language:python content:"@app.route" OR content:"@route" content:"<int:" OR content:"<string:" path:/.*\.py$/ NOT content:"authorize" NOT content:"permission_required" NOT content:"current_user"```  
+
+**Resource access without ownership verification**:  
+```language:python content:"Document.query" OR content:"File.query" OR content:"Resource.query" content:".get(" path:/.*\.py$/ NOT content:"user_id" NOT content:"owner" NOT content:"permission"```  
+
+**UUID/sequential ID enumeration risk**:  
+```language:python content:"@app.route" content:"/api/" content:"<uuid:" OR content:"<int:" path:/.*\.py$/ NOT content:"@login_required" NOT content:"@permission"```  
+
+**Missing organization boundary checks**:  
+```language:python content:"Organization.query" OR content:"Team.query" content:".user" OR content:".member" path:/.*\.py$/ NOT content:"org_id" NOT content:"current_org"```  
 
 Patterns:
 - User ID directly from request
