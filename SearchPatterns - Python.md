@@ -155,6 +155,24 @@ language:python (
 )
 ```
 
+**Direct file access with user input**:  
+```language:python content:"open(" content:"request" OR "user_input" OR "parameter" path:/.*\.py$/ NOT content:"abspath" NOT content:"realpath" NOT content:"normpath"```  
+
+**Path concatenation without validation**:  
+```language:python content:"+" OR content:"f\"" content:"/uploads" OR "/files" OR "/data" path:/.*\.py$/ (request OR user OR parameter)```  
+
+**Insufficient path traversal prevention**:  
+```language:python content:"replace" OR content:"split" content:".." path:/.*\.py$/ NOT content:"abspath" NOT content:"commonpath" NOT content:"realpath"```  
+
+**Using basename on user path (incomplete fix)**:  
+```language:python content:"basename(" content:"open(" OR content:"read" path:/.*\.py$/ NOT content:"abspath"```  
+
+**Missing directory validation**:  
+```language:python content:"open(" OR content:"read" path:/.*\.py$/ NOT content:"startswith" NOT content:"in_directory" NOT content:"validate_path"```  
+
+**Symlink following vulnerability**:  
+```language:python content:"open(" OR content:"isfile(" content:"follow_symlinks=True" OR content:"os.symlink" path:/.*\.py$/```  
+
 **Look for**:  
 - os.path.join() with unsanitized user input
 - Missing path validation
