@@ -186,8 +186,24 @@ language:python (
 - Missing CSRF tokens
 - Weak session identifiers
 
-## XSS in Templates:  
+## SSTI:  
 ```language:python content:"render_template" OR content:"jinja2" OR content:"|safe" path:/.*\.py$/```  
+
+**Template from user input**:  
+```language:python content:"Template(" OR content:"render_template_string(" content:"request" path:/.*\.py$/ NOT content:"escape" NOT content:"quote"```  
+
+**render_template with user content**:  
+```language:python content:"render_template(" content:"request\." OR "user" path:/.*\.py$/ NOT content:"escape" NOT content:"quote" NOT content:"safe"```  
+
+**Jinja2 unsafe environment**:  
+```language:python content:"jinja2.Environment(" content:"autoescape=False" OR content:"autoescape = False" path:/.*\.py$/```  
+
+**Direct template variable injection**:  
+```language:python content:"render" content:"f\"{" OR "f'" content:"user" OR "request" path:/.*\.py$/ (jinja OR template)```  
+
+**Missing context escaping**:  
+```language:python content:"render_template(" path:/.*\.py$/ NOT content:"escape" NOT content:"markupsafe" NOT content:"|quote"```  
+
 **Look for**:  
 - Template rendering without escaping
 - Unsafe template filters
