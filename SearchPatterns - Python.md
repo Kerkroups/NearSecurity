@@ -285,6 +285,19 @@ language:python (
 
 ## TOCTOU & Race Condition:  
 ```language:python content:"os.path.exists" OR content:"os.remove" OR content:"os.rename" path:/.*\.py$/```  
+
+**exists then open**:  
+```language:python content:"os.path.exists(" content:"open(" path:/.*\.py$/ NOT content:"try" NOT content:"except"```  
+
+**access check then operation**:  
+```language:python content:"os.access(" path:/.*\.py$/ NOT content:"try" NOT content:"except"```  
+
+**Multiple file operations without atomicity**:  
+```language:python content:"os.rename(" OR content:"os.remove(" path:/.*\.py$/ NOT content:"try" NOT content:"atomic"```  
+
+**Check before delete vulnerability**:  
+```language:python content:"isfile" OR content:"exists" content:"remove" OR "unlink" path:/.*\.py$/```  
+
 **Search for**:  
 - Check-then-act patterns
 - File operation races
