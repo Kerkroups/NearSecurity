@@ -16,6 +16,19 @@
 **SQLAlchemy raw SQL injection**:  
 ```language:python content:"text(" OR content:"literal_column" content:"f\"" OR content:"format(" path:/.*\.py$/```  
 
+``` 
+language:python (
+  content:"\.raw(" OR
+  content:"\.filter(" OR
+  content:"cursor.execute("
+) (
+  content:"f\"" OR
+  content:"format(" OR
+  content:"%" OR
+  content:"+"
+) path:/.*\.py$/ NOT content:"?" NOT content:"params"
+```  
+
 - Direct string concatenation in SQL queries  
 - Use of .format() or % formatting with user input
 
@@ -99,6 +112,49 @@
 
 ## Path traversal & Directory traversal:  
 ```language:python content:".." OR content:"abspath" OR content:"realpath" path:/.*\.py$/ (file OR path OR directory)```  
+
+```
+# Find all file operations
+language:python (
+  symbol:open OR
+  symbol:read OR
+  symbol:write OR
+  symbol:delete_file
+) path:/.*\.py$/
+
+# Find file operations with user input
+language:python (
+  content:"open(" OR
+  content:"\.read(" OR
+  content:"\.write("
+) (
+  content:"request\." OR
+  content:"user_input" OR
+  content:"parameter"
+) path:/.*\.py$/ (
+  NOT content:"abspath" AND
+  NOT content:"realpath" AND
+  NOT content:"normpath" AND
+  NOT content:"resolve"
+)
+
+# Find path concatenation vulnerabilities
+language:python (
+  content:"f\"" OR
+  content:"format(" OR
+  content:"+"
+) (
+  content:"/uploads" OR
+  content:"/files" OR
+  content:"/data" OR
+  content:"/home"
+) path:/.*\.py$/ (
+  content:"request" OR
+  content:"user" OR
+  content:"parameter"
+)
+```
+
 **Look for**:  
 - os.path.join() with unsanitized user input
 - Missing path validation
@@ -224,6 +280,75 @@ Look for:
 ### 5. **Insecure Authentication & Session Management**
 ```
 language:python symbol:password OR symbol:token OR symbol:secret content:"hardcoded" OR content:"password=" OR content:"API_KEY" path:/.*\.py$/
+```  
+
+```
+language:python (
+  content:"sk_live_" OR
+  content:"sk_test_" OR
+  content:"AKIA" OR
+  content:"aws_secret" OR
+  content:"api_key" OR
+  content:"API_KEY"
+) path:/.*\.py$/ (
+  NOT content:"os.environ" AND
+  NOT content:"config" AND
+  NOT content:"getenv" AND
+  NOT is:generated
+)
+
+# Find AWS credential patterns
+language:python (
+  content:"AWS_ACCESS_KEY" OR
+  content:"AWS_SECRET_KEY" OR
+  content:"aws_access_key_id"
+) path:/.*\.py$/ NOT content:"test" NOT content:"mock"
+
+# Find database connection strings
+language:python (
+  content:"postgresql://" OR
+  content:"mysql://" OR
+  content:"mongodb://"
+) path:/.*\.py$/ (
+  NOT content:"example" AND
+  NOT content:"test" AND
+  NOT content:"localhost"
+)
+```
+
+```
+# Find all authentication decorators and functions
+language:python (
+  symbol:login OR
+  symbol:authenticate OR
+  symbol:verify_token OR
+  symbol:check_auth
+) path:/.*\.py$/
+
+# Find authentication logic without rate limiting
+language:python content:"login" OR content:"authenticate" (
+  NOT content:"rate_limit" AND
+  NOT content:"throttle" AND
+  NOT content:"attempt" AND
+  NOT content:"cooldown"
+) path:/.*\.py$/
+
+# Find CSRF protection validation
+language:python (
+  content:"csrf" AND
+  NOT content:"csrf_token" AND
+  NOT content:"validate_csrf"
+) path:/.*\.py$/ (view OR route OR handler)
+
+# Find session management issues
+language:python (
+  content:"request.session" OR
+  content:"session\["
+) (
+  NOT content:"login_required" AND
+  NOT content:"authenticate" AND
+  NOT content:"permission"
+) path:/.*\.py$/
 ```
 
 Search for:
@@ -304,6 +429,43 @@ Check for:
 ### 13. **Information Disclosure & Logging Issues**
 ```
 language:python content:"print(" OR content:"logging" content:"password" OR content:"token" OR content:"secret" OR content:"api_key" path:/.*\.py$/
+```
+
+```
+# Find verbose logging of sensitive operations
+language:python (
+  content:"logger" OR
+  content:"logging" OR
+  content:"print"
+) (
+  content:"password" OR
+  content:"secret" OR
+  content:"token" OR
+  content:"credit_card" OR
+  content:"ssn" OR
+  content:"pii"
+) path:/.*\.py$/
+
+# Find unhandled exceptions exposing stack traces
+language:python (
+  content:"except Exception" OR
+  content:"except:" OR
+  content:"except BaseException"
+) (
+  content:"return.*str(e)" OR
+  content:"jsonify" AND content:"error"
+) path:/.*\.py$/
+
+# Find debug mode enabled in configuration
+language:python (
+  content:"DEBUG" OR
+  content:"TESTING" OR
+  content:"development"
+) path:/.*\.py$/ (
+  content:"True" OR
+  content:"= True" OR
+  content:"== True"
+) NOT content:"if" NOT content:"and" NOT content:"or"
 ```
 
 Look for:
