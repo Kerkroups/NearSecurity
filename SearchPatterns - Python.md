@@ -500,8 +500,60 @@ Patterns:
 - Chain searches: Start broad, then refine based on results
 
 
+## Fast search patterns:  
+```
+# Scan entire organization for critical vulnerabilities
+language:python (
+  content:"eval(" OR 
+  content:"exec(" OR 
+  content:"os.system(" OR 
+  content:"subprocess.call" OR 
+  content:"pickle.loads"
+) path:/.*\.py$/ NOT is:archived NOT is:fork
 
+# Expected scope: 50-500+ results depending on org size
+# Recommended: Review top 100 results manually
+```
 
+**Dependncy**:  
+```
+# Find potentially vulnerable package usage
+(path:requirements.txt OR path:setup.py OR path:pyproject.toml) 
+content:"django" OR content:"flask" OR content:"jinja2" 
+NOT content:">=" NOT content:"~="
+```
+
+**Database access security review**:  
+```
+# Find all database operations for SQL injection audit
+language:python (
+  content:"execute(" OR 
+  content:"query(" OR 
+  content:"select(" OR 
+  content:"filter("
+) (
+  content:"format(" OR 
+  content:"f\"" OR 
+  content:"f'" OR 
+  content:"+" OR 
+  content:"%"
+) path:/.*\.py$/ NOT content:"parameterized" NOT content:"ORM"
+```
+
+**Cryptography**:  
+```
+# Find all cryptographic operations and secret handling
+language:python (
+  content:"hashlib" OR 
+  content:"crypto" OR 
+  content:"password" OR 
+  content:"SECRET" OR 
+  content:"API_KEY" OR 
+  content:"token"
+) (
+  content:"=" NOT content:"os.environ" NOT content:"config" NOT content:"getenv"
+) path:/.*\.py$/
+```  
 
 
 
