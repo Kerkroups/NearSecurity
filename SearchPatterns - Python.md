@@ -73,7 +73,7 @@ language:python (
 - pickle deserialization
 
 ## Unsafe deserialization:  
-```language:python content:"pickle.loads" OR content:"pickle.load" OR content:"yaml.load" OR content:"json.loads" OR content:"unpickler(" OR content:"_unpickler(" path:/.*\.py$/```  
+```language:python content:"pickle.loads" OR content:"pickle.load" OR content:"yaml.load" OR content:"json.loads" OR content:"unpickler(" OR content:"_unpickler(" OR content:"cloudpickle.loads" OR content:"cloudpickle.load" OR content:"dill.load" path:/.*\.py$/```  
 
 **pickle.loads with user data**:  
 ```language:python content:"pickle.loads(" OR content:"pickle.load(" path:/.*\.py$/ NOT content:"safe" NOT content:"restricted"```  
@@ -336,9 +336,6 @@ High-risk functions:
 - `pickle` deserialization
 
 ### 3. **Unsafe Deserialization**
-```
-language:python content:"pickle.loads" OR content:"pickle.load" OR content:"yaml.load" OR content:"json.loads" path:/.*\.py$/
-```
 
 Vulnerable patterns:
 - `pickle` with untrusted data
