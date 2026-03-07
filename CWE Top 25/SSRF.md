@@ -30,3 +30,13 @@ IP для атаки:
 
 **PDF генераторы**:  
 Внедрение таких элементов как <iframe>, <img>, <base>, <script>, CSS url() и т.д. Конвертирование документов с такими тегами в файл PDF может спровоцировать SSRF. [https://youtu.be/o-tL9ULF0KI?si=_n8Ktjqa_rI8vYVw](https://youtu.be/o-tL9ULF0KI?si=_n8Ktjqa_rI8vYVw)
+
+**Document parsers**:  
+Эксплуатация через XXE и другие небезопасные техники чтения разных форматов, которые могут выполнять запросы по сети.  
+
+**File Upload**:  
+Вместо загрузки файла, попробовать загрузить ресурс из указанного URL. [https://hackerone.com/reports/713](https://hackerone.com/reports/713)  
+
+**Video converting**:  
+[https://youtu.be/OQBZ__L23KU?si=YPHBj_bFwzebvu9d](https://youtu.be/OQBZ__L23KU?si=YPHBj_bFwzebvu9d)  
+[https://hackerone.com/reports/237381](https://hackerone.com/reports/237381)  
