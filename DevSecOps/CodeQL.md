@@ -18,3 +18,7 @@
 
 ## ПРИМЕРЫ ЗАПРОСОВ:  
 [https://github.com/github/codeql/tree/main/python/ql/src/Security](https://github.com/github/codeql/tree/main/python/ql/src/Security)
+
+## ОБУЧАЮЩИЕ ВИДЕО:  
+[https://www.youtube.com/watch?v=NygVkQKmGwI&list=PLX8G9idOAfzg3uTfdAgDkybK9CG71vsaq](https://www.youtube.com/watch?v=NygVkQKmGwI&list=PLX8G9idOAfzg3uTfdAgDkybK9CG71vsaq)  
+[https://youtu.be/eAjecQrfv3o?si=EB4SPmMjipScopfn](https://youtu.be/eAjecQrfv3o?si=EB4SPmMjipScopfn)  
