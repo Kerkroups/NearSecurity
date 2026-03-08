@@ -40,3 +40,11 @@ IP для атаки:
 **Video converting**:  
 [https://youtu.be/OQBZ__L23KU?si=YPHBj_bFwzebvu9d](https://youtu.be/OQBZ__L23KU?si=YPHBj_bFwzebvu9d)  
 [https://hackerone.com/reports/237381](https://hackerone.com/reports/237381)  
+
+**Blacklist bypass**:  
+1. Convert IP to HEX.
+2. Convert IP to Decimal.
+3. Convert IP to Octal.
+4. DNS Rebinding.
+5. Domain that point to local address.
+6. 
