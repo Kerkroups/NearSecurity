@@ -15,3 +15,6 @@
 4. Создаем БД: ``` &'D:\Program Files\codeql\codeql.exe' database create <database name> --language=python --source-root=D:\Bugbounty\<project folder>\<project code folder>```
 5. В расширении загрузить созданную БД;
 6. Queries -> Create example query;
+
+## ПРИМЕРЫ ЗАПРОСОВ:  
+[https://github.com/github/codeql/tree/main/python/ql/src/Security](https://github.com/github/codeql/tree/main/python/ql/src/Security)
