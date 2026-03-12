@@ -73,7 +73,7 @@ language:python (
 - pickle deserialization
 
 ## Unsafe deserialization:  
-```language:python content:"pickle.loads" OR content:"pickle.load" OR content:"yaml.load" OR content:"json.loads" OR content:"unpickler(" OR content:"_unpickler(" OR content:"cloudpickle.loads" OR content:"cloudpickle.load" OR content:"dill.load" path:/.*\.py$/```  
+```language:python content:"pickle.loads" OR content:"pickle.load" OR content:"yaml.load" OR content:"json.loads" OR content:"unpickler(" OR content:"_unpickler(" OR content:"cloudpickle.loads" OR content:"cloudpickle.load" OR content:"dill.load" OR content:"pickle_fallback=True" path:/.*\.py$/```  
 
 **pickle.loads with user data**:  
 ```language:python content:"pickle.loads(" OR content:"pickle.load(" path:/.*\.py$/ NOT content:"safe" NOT content:"restricted"```  
