@@ -27,3 +27,8 @@
 ## ОБУЧАЮЩИЕ ВИДЕО:  
 [https://www.youtube.com/watch?v=NygVkQKmGwI&list=PLX8G9idOAfzg3uTfdAgDkybK9CG71vsaq](https://www.youtube.com/watch?v=NygVkQKmGwI&list=PLX8G9idOAfzg3uTfdAgDkybK9CG71vsaq)  
 [https://youtu.be/eAjecQrfv3o?si=EB4SPmMjipScopfn](https://youtu.be/eAjecQrfv3o?si=EB4SPmMjipScopfn)  
+
+## ДОПОЛНИТЕЛЬНО:  
+https://docs.github.com/en/code-security/reference/code-scanning/codeql/codeql-queries/ruby-built-in-queries  
+https://github.com/github/codeql/tree/main/ruby/ql/src/queries/security  
+https://codeql.github.com/docs/codeql-language-guides/codeql-for-ruby/  
