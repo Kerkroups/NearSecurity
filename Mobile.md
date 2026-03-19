@@ -25,5 +25,3 @@
 **Activity info**: ```run app.activity.info -a package_name```  
 **Service information**: ```run app.service.info -a package_name```  
 **Broadcast receivers information**: ```run app.broadcast.info -a package_name```  
-
-![data:text/html;base64,PGltZyBzcmM9MSBvbmVycm9yPXByb21wdCgndGVzdCcpPg==](data:text/html;base64,PGltZyBzcmM9MSBvbmVycm9yPXByb21wdCgndGVzdCcpPg==)
