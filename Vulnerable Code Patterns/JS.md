@@ -1,10 +1,10 @@
-Небезопасная проверка путей с помощью startWith:  
+## Небезопасная проверка путей с помощью startWith:  
 ```
 const path = resolve(query.path as string);
 if (!path.startsWith(devRootDir)) {
 ```  
 
-Небезопасный import():  
+## Небезопасный import():  
 ```
 await import(/* @vite-ignore */ query.path as string)
 ```
