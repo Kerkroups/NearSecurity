@@ -11,6 +11,15 @@
 include:
   - template: Jobs/Secret-Detection.gitlab-ci.yml
 ```
+
+Использование FIPS-image для сканнирования: [https://docs.gitlab.com/user/application_security/secret_detection/pipeline/#fips-enabled-images](https://docs.gitlab.com/user/application_security/secret_detection/pipeline/#fips-enabled-images)  
+```
+variables:
+  SECRET_DETECTION_IMAGE_SUFFIX: '-fips'
+
+include:
+  - template: Jobs/Secret-Detection.gitlab-ci.yml
+```  
 Модифицированный файл сохраняется в default branch.  
 
 2. Вариант для secret detection во время merge request: [https://docs.gitlab.com/user/application_security/secret_detection/pipeline/#use-an-automatically-configured-merge-request](https://docs.gitlab.com/user/application_security/secret_detection/pipeline/#use-an-automatically-configured-merge-request)
