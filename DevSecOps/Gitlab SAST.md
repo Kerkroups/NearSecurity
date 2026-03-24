@@ -30,3 +30,6 @@ include:
 
 ## Container scanning:  
 [https://docs.gitlab.com/user/application_security/container_scanning/](https://docs.gitlab.com/user/application_security/container_scanning/)  
+
+## Dependency scanning:  
+
