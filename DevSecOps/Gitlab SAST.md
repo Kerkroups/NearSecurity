@@ -35,3 +35,5 @@ include:
 
 ## Static application security testing:  
 
+## Dynamic application security testing:  
+
