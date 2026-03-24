@@ -26,4 +26,7 @@ include:
 
 3. Если secret detection был имплементирован не сразу то необходимо после добавления конфигурации в .gitlab-ci.yml запустить historic secret detection scan для того чтобы обнаружить уже существующие секреты в истории коммитов: [https://docs.gitlab.com/user/application_security/secret_detection/pipeline/#run-a-historic-scan](https://docs.gitlab.com/user/application_security/secret_detection/pipeline/#run-a-historic-scan)
 
-4. Результат работы secret detection pipeline будет записан в файл ```gl-secret-detection-report.json```: [https://docs.gitlab.com/user/application_security/secret_detection/pipeline/#secret-detection-results](https://docs.gitlab.com/user/application_security/secret_detection/pipeline/#secret-detection-results)  
+4. Результат работы secret detection pipeline будет записан в файл ```gl-secret-detection-report.json```: [https://docs.gitlab.com/user/application_security/secret_detection/pipeline/#secret-detection-results](https://docs.gitlab.com/user/application_security/secret_detection/pipeline/#secret-detection-results)
+
+## Container scanning:  
+[https://docs.gitlab.com/user/application_security/container_scanning/](https://docs.gitlab.com/user/application_security/container_scanning/)  
