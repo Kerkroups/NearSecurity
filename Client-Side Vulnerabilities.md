@@ -72,3 +72,29 @@ document.getElementBy...innerHtml  = `Hello, ${name}`;
 (![]+[]).constructor.formCharCode // The fromCharCode method
 (![]+[]).constructor.formCharCode(97,108,101,110,116,46,100,111,10997,105,110,41) // "alert(document.domain)"
 ```  
+
+## CORS:  
+
+**Условия для атаки**:
+1. ACAO не валидируется
+2. ACAC: true
+
+Для ACAO: * атака не сработает так как браузер не отсылает cookie.  
+
+**null origin payload**:
+```
+<iframe src="data:text/html,<payload>"></iframe>
+```
+
+## WebSockets:  
+
+SOP не работает для браузера:  
+1. Чтение от вебсокета с другого домена;
+2. Запись в вебсокет другого домена;
+
+**null origin payload**:
+```
+<iframe src="data:text/html,<script>const socket = new WebSocket('wss://example.com')</script>"></iframe>
+```
+
+Заголовок Origin должен проверяться на стадии handshake.  
