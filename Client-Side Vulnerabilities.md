@@ -48,6 +48,9 @@ constructor.prototype
 prototype
 ```  
 
+[https://cwe.mitre.org/data/definitions/915.html](https://cwe.mitre.org/data/definitions/915.html)  
+[https://cwe.mitre.org/data/definitions/1321.html](https://cwe.mitre.org/data/definitions/1321.html)  
+
 ## Client-side path traversal  
 
 ## Client-side template injection  
