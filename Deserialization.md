@@ -26,6 +26,7 @@ ObjectMapper: модель дерева создает в памяти древ�
 - readValue(): используется для десериализации (преобразования JSON строки, потока или файла в объект);
 - writeValue(): используется для сериализации (преобразования объекта в JSON):
 
+**Аннотации Jackson**: [https://github.com/FasterXML/jackson-annotations/wiki/Jackson-Annotations](https://github.com/FasterXML/jackson-annotations/wiki/Jackson-Annotations)
 
 ## Python:  
 Для сериализации и десериализации объектов в Python используются несколько модулей: pickle, cloudpickle, dill.  
