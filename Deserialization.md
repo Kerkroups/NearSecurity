@@ -72,3 +72,6 @@ pwn = pickle.dumps(pwn())
 - Marshall.load: конвертирует поток байт в объект.
 
 
+## Memchaced:  
+// TODO;  
+
