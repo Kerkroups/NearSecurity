@@ -11,3 +11,4 @@
 1. Look for credentials in .git folder
 2. Search for .pack files
 3. Search for other sensitive data in .git
+4. Check for misconfiguration in .gitlab-ci.yml file
