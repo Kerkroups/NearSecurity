@@ -12,3 +12,9 @@
 2. Search for .pack files
 3. Search for other sensitive data in .git
 4. Check for misconfiguration in .gitlab-ci.yml file
+
+**Github actions**:  
+Где искать? ".github/workflows/" - список workflows в которых могут использоваться Actions.  
+Для чего нужны Actions? - запускает действия при определенных событиях. Actions задаются в параметре "uses".  
+Список событий: [https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows)  
+- Анализ кода Actions
