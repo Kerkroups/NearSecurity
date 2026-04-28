@@ -20,18 +20,18 @@ Relation: contains
 Value: SYSTEM  
 
 Column: Result  
-Relation: is
-Action: include
+Relation: is  
+Action: include  
 Value: NAME INVALID  
 
 Column: Operation  
-Relation: is
-Action: include
+Relation: is  
+Action: include  
 Value: CreateFile  
 
 Column: Path  
-Relation: ends with
-Action: include
+Relation: ends with  
+Action: include  
 Value: dll
 
 
