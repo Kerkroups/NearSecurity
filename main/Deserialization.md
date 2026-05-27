@@ -86,6 +86,7 @@ pwn = pickle.dumps(pwn())
 - __destruct(): вызывается при завершении скрипта PHP и когда объект уничтожается.
 - __toString(): использовать объект как строку, также может использоваться для чтения файлов или других действий в зависимости от вызываемых внутри метода функций.
 
+**PHP insecure deserialization gadget chain**: https://blog.redteam-pentesting.de/2021/deserialization-gadget-chain/  
 
 ## Ruby:  
 
