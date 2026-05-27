@@ -3,6 +3,23 @@
 - Передача данных по сети, обмен данными между веб сервисами, message brokers;
 - Хранения данных в БД, кеше, файловой системе;
 - Использование как токена (cookie, HTTP headers, etc.);
+
+**Форматы сериализации**:  
+- Java serialization
+- JSON
+- XML
+- YAML
+- protobuf
+- MessagePack
+
+**Gadget**: фрагмент существующего кода в приложении, который при десериализации может быть использован для построения цепочки команд, например объект класса.  
+
+**Gadget chain объяснение**:  
+- https://medium.com/@dub-flow/deserialization-what-the-heck-actually-is-a-gadget-chain-1ea35e32df69  
+- https://pentesterlab.com/glossary/gadget-chain
+
+**Дополнительная информация**: https://pentesterlab.com/glossary/insecure-deserialization  
+
 ## Java:  
 Для сериализации/десериализации в Java используется интерфейс класса Java.io.Serializable. Для сериализации объекта в байты используется класс ObjectOutputStream, метод writeObject() выполняет запись байт в поток. Для десериализации используется класс 
 ObjectInputStream, метод readObject() используется для чтения потока байт из потока (чтение объекта из ObjectOutputStream), readResolve().  
@@ -18,9 +35,14 @@ rO0AB
 ```  
 Эксплуатация десериализации в Java зависит от потока выполнения кода.  
 
+**Java reflection**: https://javarush.com/groups/posts/513-reflection-api-refleksija-temnaja-storona-java  
+Простыми словами у Java есть возможность чтения и модификации переменных и функций классов помеченных модификаторами private и protected. Возможность изучения классов в runtime.  
+
 **Jackson библиотека**:  
 Блиблиотека, которая используется для конвертиции строк JSON и простых объектов. Также поддерживает другие форматы данных, такие как CSV, YAML, XML. Библиотека имеет три основных пакета: 
- - **Streaming**: читает и записывает содержимое JSON в виде дискретных событий. **JsonParser** считывает JSON в объект. **JsonGenerator** записывает объект в JSON.  
+ - **Streaming**: читает и записывает содержимое JSON в виде дискретных событий.
+ - **JsonParser** считывает JSON в объект.
+ - **JsonGenerator** записывает объект в JSON.  
  - Databind, 
  - Annotations.  
 
