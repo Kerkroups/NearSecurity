@@ -15,7 +15,7 @@
 
 ## Symlinks:  
 Symlink может указывать на файл, директорию, объект.  
-Symlink != Shortcut (имеет расширение .lnk.)  
+Symlink (имеет расширение .symlink) != Shortcut (имеет расширение .lnk.)  
 На примере двух текстовых файлов можно увидеть отличия в содержании обычного текстового файла и shortcut (cat file1.txt и cat shortcut-file1.txt.lnk).  
 
 **Создание симлинка (symlink)**:  
