@@ -14,7 +14,7 @@ Load Image
 **Модифицировать сервис**: ```sc.exe config "ServiceName" binPath="\"<PATH_TO_BINARY>\""```  
 
 ## Symlinks:  
-Создание симлинка (sotf link): ```mklink /j "symlink_name" "real_target"```  
+**Создание симлинка (sotf link)**: ```mklink /j "symlink_name" "real_target"```  
 
 
 ## Additional ProcMon filters:  
