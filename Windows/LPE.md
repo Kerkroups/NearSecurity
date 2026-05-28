@@ -14,7 +14,7 @@
 **Модифицировать сервис**: ```sc.exe config "ServiceName" binPath="\"<PATH_TO_BINARY>\""```  
 
 ## Symlinks:  
-Symlink может указывать на файл, директорию, объект.  
+Symlink может указывает на файл (объект).
 Symlink (имеет расширение .symlink) != Shortcut (имеет расширение .lnk.)  
 На примере двух текстовых файлов можно увидеть отличия в содержании обычного текстового файла и shortcut (cat file1.txt и cat shortcut-file1.txt.lnk).  
 
@@ -24,7 +24,8 @@ Symlink (имеет расширение .symlink) != Shortcut (имеет ра�
 - Ссылка на файл: ```New-Item -ItemType SymbolicLink -Path "C:\Path\To\File.txt" -Value "C:\Path\To\Target.txt"```
 
 **Разница между symlink и shortcut**: symlink это специальный указатель, простая ссылка на данные, программы могут обращаться по symlink. shortcut - обрабатывается ОС, программы не могут обращаться по shortcut, имеет дополнительные опции.  
-**Hardlink**: указывает на данные, не на файл. Если удалить файл, то hardlink будет хранить данные.
+**Hardlink**: указывает на данные, не на файл. Если удалить файл, то hardlink будет хранить данные.  
+**Junction**: может указывать на диск, директорию.  
 
 ## Additional ProcMon filters:  
 **Column**: User, **Relation**: contains, **Value**: SYSTEM  
