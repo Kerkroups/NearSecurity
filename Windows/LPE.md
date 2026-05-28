@@ -24,6 +24,7 @@ Symlink (имеет расширение .symlink) != Shortcut (имеет ра�
 - Ссылка на файл: ```New-Item -ItemType SymbolicLink -Path "C:\Path\To\File.txt" -Value "C:\Path\To\Target.txt"```
 
 **Разница между symlink и shortcut**: symlink это специальный указатель, простая ссылка на данные, программы могут обращаться по symlink. shortcut - обрабатывается ОС, программы не могут обращаться по shortcut, имеет дополнительные опции.  
+**Hardlink**: указывает на данные, не на файл. Если удалить файл, то hardlink будет хранить данные.
 
 ## Additional ProcMon filters:  
 **Column**: User, **Relation**: contains, **Value**: SYSTEM  
