@@ -1,7 +1,7 @@
 ## Operation:  
-SetSecurityFile
-CreateFile
-Load Image
+- **SetSecurityFile**  
+- **CreateFile**  
+- **Load Image**  
 
 ## Uunquoted service paths  
 **Информация о сервисе**: ```sc.exe qc "ServiceName"```  
