@@ -19,7 +19,7 @@ Symlink (имеет расширение .symlink) != Shortcut (имеет ра�
 На примере двух текстовых файлов можно увидеть отличия в содержании обычного текстового файла и shortcut (cat file1.txt и cat shortcut-file1.txt.lnk).  
 
 **Создание симлинка (symlink)**:  
-- Ссылка на директорию: ```mklink /j "symlink_name" "real_target"```
+- Ссылка на директорию: ```mklink "symlink_name" "real_target"```
 - Ссылка на директорию: ```New-Item -ItemType SymbolicLink -Path "C:\Path\To\Link" -Value "C:\Path\To\Target```
 - Ссылка на файл: ```New-Item -ItemType SymbolicLink -Path "C:\Path\To\File.txt" -Value "C:\Path\To\Target.txt"```
 
