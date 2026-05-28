@@ -14,6 +14,7 @@
 **Модифицировать сервис**: ```sc.exe config "ServiceName" binPath="\"<PATH_TO_BINARY>\""```  
 
 ## Symlinks:  
+Ссылка может указывать на файл, директорию, объект.  
 **Создание симлинка (sotf link)**: ```mklink /j "symlink_name" "real_target"```  
 
 
