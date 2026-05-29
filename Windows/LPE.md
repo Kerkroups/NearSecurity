@@ -60,7 +60,7 @@ SetOplock: [SetOpLock](https://github.com/googleprojectzero/symboliclink-testing
 6. Продолжаем выполнение программы.
 
 **Vulnerable pattern for inserting symlink/hardlink/junction**:  
-Множественные операции над одним и тем же файлом.
+Множественные операции над одним и тем же файлом. Выполняется операция CreateFile дважды.  
 ```
 CreateFile
 CloseFile
@@ -74,6 +74,11 @@ WriteFile
 **Column**: Path, **Relation**: contains, **Value**: C:\Windows\Temp  
 **Column**: Path, **Relation**: contains, **Value**: C:\ProgramData  
 **Column**: Path, **Relation**: contains, **Value**: C:\Users\<username>  
+**Column**: Operation, **Relation**: is, **Value**: CreateFile  
+**Column**: Operation, **Relation**: is, **Value**: WriteFile
+**Column**: Operation, **Relation**: is, **Value**: QueryBasicInformationFile  
+
+
 
 
 ## Additional ProcMon filters:  
