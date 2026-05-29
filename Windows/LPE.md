@@ -79,6 +79,9 @@ SetOplock: [SetOpLock](https://github.com/googleprojectzero/symboliclink-testing
 - Look for "LoadLibraryA" and "LoadLibraryExW" calls. This calls used to load DLL's or EXE files (dynamically load external code modules into running application's memory at runtime).
 - Save ProcMon output to CSV file.  
 
+## Basic Windows commands:
+- icacls
+
 ## Basic questions:  
 - Какие файлы создаюся?
 - Где SYSTEM пишет?
