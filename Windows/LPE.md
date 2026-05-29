@@ -68,6 +68,9 @@ CloseFile
 CreateFile
 WriteFile
 ```
+**Attack File DACL**:  
+- GetFileSecurity
+- SetFileSecurity
 
 **ProcMon filters**:
 **Column**: User, **Relation**: is, **Value**: NT AUTHORITY\SYSTEM  
