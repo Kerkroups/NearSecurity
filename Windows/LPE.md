@@ -72,7 +72,7 @@ WriteFile
 - GetFileSecurity
 - SetFileSecurity
 
-**ProcMon filters**:
+**ProcMon filters**:  
 **Column**: User, **Relation**: is, **Value**: NT AUTHORITY\SYSTEM  
 **Column**: Path, **Relation**: contains, **Value**: C:\Windows\Temp  
 **Column**: Path, **Relation**: contains, **Value**: C:\ProgramData  
