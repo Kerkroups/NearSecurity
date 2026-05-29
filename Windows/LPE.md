@@ -45,12 +45,14 @@ Symlink (имеет расширение .symlink) != Shortcut (имеет ра�
 
 Object Manager symlink (\RPC CONTROL): [CreateMountPoint](https://github.com/googleprojectzero/symboliclink-testing-tools/tree/main/CreateMountPoint)  
 junction: [CreateSymlink](https://github.com/googleprojectzero/symboliclink-testing-tools/tree/main/CreateSymlink)  
+SetOplock: [SetOpLock](https://github.com/googleprojectzero/symboliclink-testing-tools/tree/main/SetOpLock)
 
-**Действия**:
-1. Удалить директорию
-2. Создать директорию
-3. Создать точку монтирования: CreateMountPoint.exe <путь_к_созданной_директории> "\RPC Control"
-4. Создать symlink на удаляемый файл: CreateSymlink.exe "<имя_symlink>" "<удаляемый_файл>"
+**Действия**:  
+1. Перед эксплуатацией нужно создать oplock для файла куда будут вноситься логи (для того, чтобы программа остановилась и не пошла по циклу дальше): SetOpLock.exe <path_to_file>
+2. Удалить директорию
+3. Создать директорию
+4. Создать точку монтирования: CreateMountPoint.exe <путь_к_созданной_директории> "\RPC Control"
+5. Создать symlink на удаляемый файл: CreateSymlink.exe "<имя_symlink>" "<удаляемый_файл>"
 
 
 **ProcMon filters**:
