@@ -34,6 +34,20 @@ Symlink (имеет расширение .symlink) != Shortcut (имеет ра�
 Нужно отслеживать поведение msiexec.exe.  
 Для анализа .msi используем orca.exe.  
 
+**CTF-вариант**:
+- InstallAlwaysElevated
+
+## Arbitrary File Deletion:  
+Нужно помнить, что у стандартного пользователя есть право на запись в директории C:\Windows\Temp и C:\ProgramData.  
+Некоторые сервисы могут выполнять неправильную последовательность поиска файла или директории, что может привести к уязвимости.  
+
+**ProcMon filters**:
+**Column**: User, **Relation**: is, **Value**: NT AUTHORITY\SYSTEM  
+**Column**: Path, **Relation**: contains, **Value**: C:\Windows\Temp  
+**Column**: Path, **Relation**: contains, **Value**: C:\ProgramData  
+**Column**: Path, **Relation**: contains, **Value**: C:\Users\<username>  
+
+
 ## Additional ProcMon filters:  
 **Column**: User, **Relation**: contains, **Value**: SYSTEM  
 **Column**: Result, **Relation**: is, **Action**: include, **Value**: NAME INVALID  
