@@ -41,7 +41,7 @@ Symlink (имеет расширение .symlink) != Shortcut (имеет ра�
 **CTF-вариант**:
 - InstallAlwaysElevated
 
-## Arbitrary File Deletion:  
+## Arbitrary File Manipulation:  
 Нужно помнить, что у стандартного пользователя есть право на запись в директории C:\Windows\Temp и C:\ProgramData.  
 Некоторые сервисы могут выполнять неправильную последовательность поиска файла или директории, что может привести к уязвимости.  
 
@@ -51,13 +51,23 @@ Object Manager symlink (\RPC CONTROL): [CreateMountPoint](https://github.com/goo
 junction: [CreateSymlink](https://github.com/googleprojectzero/symboliclink-testing-tools/tree/main/CreateSymlink)  
 SetOplock: [SetOpLock](https://github.com/googleprojectzero/symboliclink-testing-tools/tree/main/SetOpLock)
 
-**Действия**:  
+**Действия**:  пример Arbitrary File Deletion
 1. Перед эксплуатацией нужно создать oplock для файла куда будут вноситься логи (для того, чтобы программа остановилась и не пошла по циклу дальше): SetOpLock.exe <path_to_file>
 2. Удалить директорию
 3. Создать директорию
 4. Создать точку монтирования: CreateMountPoint.exe <путь_к_созданной_директории> "\RPC Control"
 5. Создать symlink на удаляемый файл: CreateSymlink.exe "<имя_symlink>" "<удаляемый_файл>"
+6. Продолжаем выполнение программы.
 
+**Vulnerable pattern for inserting symlink/hardlink/junction**:  
+Множественные операции над одним и тем же файлом.
+```
+CreateFile
+CloseFile
+<-------- здесь можно подменить файл
+CreateFile
+WriteFile
+```
 
 **ProcMon filters**:
 **Column**: User, **Relation**: is, **Value**: NT AUTHORITY\SYSTEM  
