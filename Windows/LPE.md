@@ -41,6 +41,18 @@ Symlink (имеет расширение .symlink) != Shortcut (имеет ра�
 Нужно помнить, что у стандартного пользователя есть право на запись в директории C:\Windows\Temp и C:\ProgramData.  
 Некоторые сервисы могут выполнять неправильную последовательность поиска файла или директории, что может привести к уязвимости.  
 
+**TOCTOU**: вариант race condition атаки, который часто используется в LPE. Идея в том, что если приложение, к примеру, сначала проверяет файл -> удаляет -> записывает в логи, то в такой цепи атакующий между всем этими стадиями может заменить удаляемы файл на symlinc/junction. Так как у стандартного пользователя нет прав для содания symlinc, можно обойти это ограничение с помощью комбинации: junction -> Object Manager symlink (\RPC CONTROL), что дает нам pseudo-symlink.  
+
+Object Manager symlink (\RPC CONTROL): [CreateMountPoint](https://github.com/googleprojectzero/symboliclink-testing-tools/tree/main/CreateMountPoint)  
+junction: [CreateSymlink](https://github.com/googleprojectzero/symboliclink-testing-tools/tree/main/CreateSymlink)  
+
+**Действия**:
+1. Удалить директорию
+2. Создать директорию
+3. Создать точку монтирования: CreateMountPoint.exe <путь_к_созданной_директории> "\RPC Control"
+4. Создать symlink на удаляемый файл: CreateSymlink.exe "<имя_symlink>" "<удаляемый_файл>"
+
+
 **ProcMon filters**:
 **Column**: User, **Relation**: is, **Value**: NT AUTHORITY\SYSTEM  
 **Column**: Path, **Relation**: contains, **Value**: C:\Windows\Temp  
