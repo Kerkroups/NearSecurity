@@ -81,8 +81,9 @@ WriteFile
 **Column**: Operation, **Relation**: is, **Value**: WriteFile
 **Column**: Operation, **Relation**: is, **Value**: QueryBasicInformationFile  
 
+## DLL Hijacking:  
 
-
+Реверсим программу, ищем имплементацию функции LoadLibrary (нам нужно понимать порядок загрузки библиотек).  
 
 ## Additional ProcMon filters:  
 **Column**: User, **Relation**: contains, **Value**: SYSTEM  
