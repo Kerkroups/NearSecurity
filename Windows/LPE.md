@@ -34,6 +34,8 @@ Symlink (имеет расширение .symlink) != Shortcut (имеет ра�
 Нужно отслеживать поведение msiexec.exe.  
 Для анализа .msi используем orca.exe.  
 
+**Запуск механизма восстановления**: ```msiexec.exe /fa C:\Windows\Installer\[XXXXX].msi```  
+
 **CTF-вариант**:
 - InstallAlwaysElevated
 
