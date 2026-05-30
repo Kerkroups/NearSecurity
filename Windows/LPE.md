@@ -78,7 +78,7 @@ WriteFile
 **Column**: Path, **Relation**: contains, **Value**: C:\ProgramData  
 **Column**: Path, **Relation**: contains, **Value**: C:\Users\<username>  
 **Column**: Operation, **Relation**: is, **Value**: CreateFile  
-**Column**: Operation, **Relation**: is, **Value**: WriteFile
+**Column**: Operation, **Relation**: is, **Value**: WriteFile  
 **Column**: Operation, **Relation**: is, **Value**: QueryBasicInformationFile  
 
 ## DLL Hijacking:  
