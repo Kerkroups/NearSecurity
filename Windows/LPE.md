@@ -89,9 +89,9 @@ WriteFile
 **Column**: User, **Relation**: contains, **Value**: SYSTEM  
 **Column**: Result, **Relation**: is, **Action**: include, **Value**: NAME INVALID  
 **Column**: Operation, **Relation**: is, **Action**: include, **Value**: CreateFile  
-**Column**: Path, **Relation**: ends with, **Action**: include, **Value**: dll
+**Column**: Path, **Relation**: ends with, **Action**: include, **Value**: dll  
 **Column**: Result, **Relation**: is, **Action**: include, **Value**: PATH NOT FOUND  
-**Column**: Result, **Relation**: is, **Action**: include, **Value**: NAME NOT FOUND
+**Column**: Result, **Relation**: is, **Action**: include, **Value**: NAME NOT FOUND  
 
 ## Notes:  
 - Not every "CreateFile" call leads to load placed DLL. There are many calls that just checks for attributes, permissions, if the file exist and so on.
