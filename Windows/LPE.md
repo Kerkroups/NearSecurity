@@ -85,6 +85,9 @@ WriteFile
 
 Реверсим программу, ищем имплементацию функции LoadLibrary (нам нужно понимать порядок загрузки библиотек).  
 
+## Scheduled tasks  
+Анализ планировщиков событый на уязвимости доступа.  
+
 ## Additional ProcMon filters:  
 **Column**: User, **Relation**: contains, **Value**: SYSTEM  
 **Column**: Result, **Relation**: is, **Action**: include, **Value**: NAME INVALID  
