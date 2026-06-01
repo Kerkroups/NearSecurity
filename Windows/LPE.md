@@ -88,6 +88,21 @@ WriteFile
 ## Scheduled tasks  
 Анализ планировщиков событый на уязвимости доступа.  
 
+## Named Pipes  
+
+**pipe** - это блок разделяемой памяти, который используется процессом для коммуникации и обмена данными.  
+**Named Pipes** - в Windows это механизм который предоставляет возможность двум независимым процессам обмениваться данными, даже если процессы расположенны в разных сетях. Это очень похоже на клиент/серверную архитектуру. named pipe server открывает соединение с предопределенным именем и затем named pipe client подключается к этой pipe по известному имени. После установления соединения может начаться обмен данными.  
+
+**Паттерн named pipe**: ```\\.\pipe\pipe_name```  
+
+По умолчанию named pipes коммуницируют по протоколу SMB.  
+
+**Вывести список named pipes**: ```((Get-ChildItem \\.pipe\).name)[-1..-5]```  
+
+**Атаки на named piped**:  
+- Token Impersonation
+
+
 ## Additional ProcMon filters:  
 **Column**: User, **Relation**: contains, **Value**: SYSTEM  
 **Column**: Result, **Relation**: is, **Action**: include, **Value**: NAME INVALID  
