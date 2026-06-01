@@ -3,7 +3,7 @@
 - **CreateFile**  
 - **Load Image**  
 
-## Uunquoted service paths  
+## Services  
 **Информация о сервисе**: ```sc.exe qc "ServiceName"```  
 **Информация о доступах к сервису**: ```sc.exe sdshow "ServiceName"``` или ```accesschk.exe -c "ServiceName"```  
 **Список всех сервисов и досупа к ним**: ```accesschk.exe -cqv *```  
