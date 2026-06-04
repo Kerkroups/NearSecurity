@@ -7,6 +7,7 @@
 **Информация о сервисе**: ```sc.exe qc "ServiceName"```  
 **Информация о доступах к сервису**: ```sc.exe sdshow "ServiceName"``` или ```accesschk.exe -c "ServiceName"```  
 **Список всех сервисов и досупа к ним**: ```accesschk.exe -cqv *```  
+**Список всех запущенных сервисов**: ```Get-Service | Where-Object {$_.Status -eq "Running"}```  
 **Найти все unquoted services**:  
 - ```Get-CimInstance Win32_Service | Where-Object {$_.PathName -notLike '"*' -and $_.PathName -like '* *'} | Select-Object Name, DisplayName, PathName```
 - ```wmic service gqt name, displayname, pathname, startmode | findstr /i "auto" | findstr /i /v "c:\windows\\" | findstr /i /v """```
