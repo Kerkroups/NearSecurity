@@ -123,6 +123,7 @@ WriteFile
 ## Windows Error codes:  
 "Access Denied": 0x80070005  
 "File Not Found": 0x80070002  
+"Driver package filed signature verification": 0xe000022f  
 
 ## Basic questions:  
 - Какие файлы создаюся?
