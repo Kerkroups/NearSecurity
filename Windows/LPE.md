@@ -120,6 +120,10 @@ WriteFile
 ## Basic Windows commands:
 - icacls
 
+## Windows Error codes:  
+"Access Denied": 0x80070005  
+"File Not Found": 0x80070002  
+
 ## Basic questions:  
 - Какие файлы создаюся?
 - Где SYSTEM пишет?
