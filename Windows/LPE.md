@@ -31,6 +31,8 @@ ForEach-Object {
 
 **Модифицировать сервис**: ```sc.exe config "ServiceName" binPath="\"<PATH_TO_BINARY>\""```  
 
+**Список значений доступа**: https://learn.microsoft.com/en-us/windows/win32/services/service-security-and-access-rights  
+
 ## Symlinks:  
 Symlink может указывает на файл (объект).
 Symlink (имеет расширение .symlink) != Shortcut (имеет расширение .lnk.)  
