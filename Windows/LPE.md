@@ -12,6 +12,23 @@
 - ```Get-CimInstance Win32_Service | Where-Object {$_.PathName -notLike '"*' -and $_.PathName -like '* *'} | Select-Object Name, DisplayName, PathName```
 - ```wmic service gqt name, displayname, pathname, startmode | findstr /i "auto" | findstr /i /v "c:\windows\\" | findstr /i /v """```
 
+**Вывести результат команды ./accesschk.exe для каждого сервиса где есть строка "RW\s+NT AUTHORITY\\Authenticated Users"**:  
+```
+Get-Service |
+Where-Object {$_.Status -eq "Running"} |
+ForEach-Object {
+    $service = $_
+    $output = .\accesschk.exe -accepteula -c $service.Name 2>$null
+
+    $match = $output | Select-String 'RW\s+NT AUTHORITY\\Authenticated Users'
+
+    if ($match) {
+        Write-Host "Found service: $($service.Name)" -ForegroundColor Green
+        $match.Line
+    }
+}
+```
+
 **Модифицировать сервис**: ```sc.exe config "ServiceName" binPath="\"<PATH_TO_BINARY>\""```  
 
 ## Symlinks:  
