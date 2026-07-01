@@ -25,9 +25,26 @@ X-Forwarded-Host
 X-Forwarded-Ip
 X-Original-URL
 X-Forwarded-Scheme
+X-HTTP-Method-Override
+X-Method-Override
+X-HTTP-Method
+X-Forwarded-Port
 User-Agent
 Cookies
 Path queries: ;, %00, %2e%2e
 ```
 
 **Заголовки кеширования**  
+
+**Быстрый чек-лист**:  
+- Наличие "Cache-Control: public";
+- Проверить заголовок "Vary";
+- Протестировать потенциальные "unkeyed inputs" на отражение в ответе сервера;
+- Протестировать ответы с ошибками (400б 502);
+- Протестировать различные User-Agents;
+- Логировать ответы с "Age" и "Via";
+
+**Выборочное отравление - цели User-Agent. Vary уловки.**  
+Заголовок "Vary: User-Agent" означает, чтов кеше хранятся различные данные в зависимости от "User-Agent" пользователя. Это позволяет отдавать разные версии ответа сервера для отдельных технологий/клиентских групп (например, мобильные браузеры).  
+
+
