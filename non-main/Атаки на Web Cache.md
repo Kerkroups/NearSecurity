@@ -13,3 +13,21 @@ MISS - данные полученные от Origin и затем сохран�
 У каждого закешированного объекта есть идентификатор (cache key). Cache key обычно является комбинацией из:  
 ```Schema + Host + Path + Query + [Иногда заголовки перечисленные в заголовке Vary]```. ВАЖНО!: большинство данных, которые влияют на ответ от сервера не являются составляющими Cache key. Такие данны называют Unkeyed inputs.  
 
+**Методология поиска Web Cache Poisoning**  
+1. Найти unkeyed inputs; Параметры запроса или заголовки, которые меняют ответ от сервера, но игнорируются cache key.
+2. Внедрить payload в unkeyed inputs.
+3. Проверить, удалось ли сохранить payload в кеше.
+
+**Примеры unkeyed inputs**  
+```
+X-Forwarded-For
+X-Forwarded-Host
+X-Forwarded-Ip
+X-Original-URL
+X-Forwarded-Scheme
+User-Agent
+Cookies
+Path queries: ;, %00, %2e%2e
+```
+
+**Заголовки кеширования**  
