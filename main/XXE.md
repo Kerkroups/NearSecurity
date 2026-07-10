@@ -86,12 +86,13 @@ Open XML fioramt file contains:
 ```
 
 **Predefined entities**:  
-- <    &lt;
-- >    &gt;
-- &    &amp;
-- '    &apos;
-- "    &quot;
-
+```
+<    &lt;
+>    &gt;
+&    &amp;
+'    &apos;
+"    &quot;
+```  
 **Entity expansion**:  
 ```
 <!ENTITY foobar "&f;bar"> <!ENTITY f "foo">
