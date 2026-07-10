@@ -114,7 +114,9 @@ DTD можно объявлять в самом документе или быт
 - Сущности могут использоваться или быть определены в других сущностях.
 
 
+
 ## Источники  
 - https://www.xml.com/pub/a/98/08/xmlqna2.html#ENTATTR
 - https://www.xml.com/pub/a/98/08/xmlqna0.html
 - https://www.w3schools.com/xml/xml_dtd.asp
+- https://www.w3schools.com/xml/xml_xlink.asp
