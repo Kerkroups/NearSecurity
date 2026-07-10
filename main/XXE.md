@@ -117,3 +117,4 @@ DTD можно объявлять в самом документе или быт
 ## Источники  
 - https://www.xml.com/pub/a/98/08/xmlqna2.html#ENTATTR
 - https://www.xml.com/pub/a/98/08/xmlqna0.html
+- https://www.w3schools.com/xml/xml_dtd.asp
