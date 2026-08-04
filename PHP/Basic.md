@@ -54,5 +54,6 @@ echo "Hi {$name}"; // Interpolation in {};
 
 **Prepared statements and Stored procedures**:  
 
+
 ## Источники:  
 Самоучитель PHP 7  
