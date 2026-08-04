@@ -46,7 +46,7 @@ $res = "First Name: " . $fname . " Last Name: " . $lname . " Age: " . $age;
 **Интерполяция**:  
 ```
 $name = "Peter";
-echo "Hi $name"; // Interpolation in "" (double quotes), could be in '' (single quotes);
+echo "Hi $name"; // Interpolation in "" (double quotes), Heredoc;
 echo "Hi {$name}"; // Interpolation in {};
 ```
 
