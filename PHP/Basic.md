@@ -50,5 +50,9 @@ echo "Hi $name"; // Interpolation in "" (double quotes), Heredoc;
 echo "Hi {$name}"; // Interpolation in {};
 ```
 
+## Взаимодействие с БД (SQL):  
+
+**Prepared statements and Stored procedures**:  
+
 ## Источники:  
 Самоучитель PHP 7  
