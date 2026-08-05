@@ -67,5 +67,7 @@ echo "Hi {$name}"; // Interpolation in {};
 **escapeshellargs()**  
 **escapeshellcmd()**  
 
+## Сериализация / Десериализация:  
+
 ## Источники:  
 Самоучитель PHP 7  
