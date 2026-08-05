@@ -56,6 +56,16 @@ echo "Hi {$name}"; // Interpolation in {};
 
 **Prepared statements and Stored procedures**:  
 
+## Фильтрация и проверка данных  
+Для того чтобы гарантировать, что ```$_GET['id']``` содеоржит число, а не строку, мы можем явно преобразоовать её к целому числу: ```$_GET['id'] = intval($_GET['id']);```.  
+Проверить, является ли переданное значение числом: ```if(!is_int($_GET['id'])) exit('Value must be a number');```  
+
+**htmlspecialchars()**  
+**strip_tags()**  
+**filter_var()**  
+**filter_input()**  
+**escapeshellargs()**  
+**escapeshellcmd()**  
 
 ## Источники:  
 Самоучитель PHP 7  
