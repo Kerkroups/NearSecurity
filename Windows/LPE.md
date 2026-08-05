@@ -61,7 +61,7 @@ Symlink (имеет расширение .symlink) != Shortcut (имеет ра�
 **CTF-вариант**:
 - InstallAlwaysElevated
 
-**MSI Installert**:  
+**MSI Installers**:  
 https://sec-consult.com/blog/detail/msi-installer-repair-to-system-a-detailed-journey/  
 
 ## Arbitrary File Manipulation:  
