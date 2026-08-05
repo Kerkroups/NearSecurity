@@ -61,6 +61,9 @@ Symlink (имеет расширение .symlink) != Shortcut (имеет ра�
 **CTF-вариант**:
 - InstallAlwaysElevated
 
+**MSI Installert**:  
+https://sec-consult.com/blog/detail/msi-installer-repair-to-system-a-detailed-journey/  
+
 ## Arbitrary File Manipulation:  
 Нужно помнить, что у стандартного пользователя есть право на запись в директории C:\Windows\Temp и C:\ProgramData.  
 Некоторые сервисы могут выполнять неправильную последовательность поиска файла или директории, что может привести к уязвимости.  
@@ -121,7 +124,6 @@ WriteFile
 
 **Атаки на named piped**:  
 - Token Impersonation
-
 
 ## Additional ProcMon filters:  
 **Column**: User, **Relation**: contains, **Value**: SYSTEM  
