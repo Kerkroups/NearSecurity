@@ -117,5 +117,13 @@ echo "point = {$point}"; point = (5, 12)
 }
 ```
 
+## Шаблоны проектирования  
+
+**Singleton**:  
+
+**Factory Method**:  
+
+**Model View Control**:  
+
 ## Источники:  
 Самоучитель PHP 7  
