@@ -72,6 +72,14 @@ echo "Hi {$name}"; // Interpolation in {};
 **escapeshellcmd()**  
 
 ## Сериализация / Десериализация:  
+```
+// Only allow specific classes to instantiate
+unserialize($serializedData, ["allowed_classes" => ["User", "Settings"]]);
+
+// Block ALL object instantiations (allows only primitive types like arrays, strings, integers)
+unserialize($serializedData, ["allowed_classes" => false]);
+```  
+Passing true to allow all classes is deprecated starting in PHP 8.4 and will trigger a fatal error/type error.  
 
 ## Специальные методы:  
 
