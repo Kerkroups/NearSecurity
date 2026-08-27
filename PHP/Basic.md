@@ -84,6 +84,22 @@ Array
 
 **Многомерные массивы**  
 
+```
+$arr = [
+  'One' => ['First', 'Second', 'Third'],
+  'Two' => ['Fourth', 'Fifth', 'Six'],
+  'Three' => ['Seven', 'Eight', 'Nine']
+];
+
+$arr['One'][0]; // 'First'.
+$arr['Two'][1]; // 'Fifth'.
+$arr['Three'][2]; // 'Nine'.
+```
+
+**list()**  
+
+
+
 
 ## Взаимодействие с БД (SQL):  
 
