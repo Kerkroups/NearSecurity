@@ -306,6 +306,9 @@ echo "point = {$point}"; point = (5, 12)
 ```
 
 **Callback функции**:  
+https://www.php.net/manual/ru/language.types.callable.php  
+https://www.php.net/manual/ru/class.closure.php  
+https://www.w3schools.com/PHP/php_callback_functions.asp  
 
 ## Наследование  
 Наследование позволяет создать новый класс на основе уже существующего, автоматически включив в новый класс переменные и методы старого. При объявлении производного класса необходимо указать имя базового класса с помощью ключевого слова extends.  
