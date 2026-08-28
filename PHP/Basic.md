@@ -313,7 +313,26 @@ echo "point = {$point}"; point = (5, 12)
 **Перегрузка методов**  
 В производном классе можно создать метод с таким же названием, что и в базовом классе, который заменит метод базового класса при вызове. В рамках производного класса остается возможность вызвать метод базового класса, обратившись к нему при помощи префикса parent::.
 
-**Позднее статическое связывание**
+**Позднее статическое связывание**  
+```
+class Base {
+
+  public static function title() {
+    return __CLASS__;
+  }
+  public static function test() {
+    return static::title();
+  }
+}
+
+class Derived extends Base {
+  public static function title() {
+    return __CLASS__;
+  }
+}
+
+echo Derived::test();  // Derived, если self::title() => Base.
+```  
 
 ## Источники:  
 Самоучитель PHP 7  
