@@ -43,6 +43,7 @@ class PotyzhniyValidator {
     	}
     	return $binary;
 	}
+	
 	/* Возможно нужно сделать общую функцию с case:
 	public static function checkData($data1, $data2){
 		if ($data1_type === $data1_type) {
@@ -68,6 +69,8 @@ class PotyzhniyValidator {
 	}
 		
 	*/
+
+	
 	// Статический метод для сравнениия массивов.
 	// Возможно стоит добавить возможность сравнивать последовательности из 1 для двух строк а именно их индексы.
 	public static function compareStrings(array $arr1, array $arr2){
@@ -79,6 +82,42 @@ class PotyzhniyValidator {
 		}
 		else {
 			echo "Strings not same";
+			return False;
+		}
+	}
+	public static function compareObject(array $arr1, array $arr2){
+		$a1 = objectToBinaryString($arr1);
+		$a2 = objectToBinaryString($arr2);
+		if (count($a1) === count($a2) && $a1 === $a2) {
+			echo "Same object";
+			return True;
+		}
+		else {
+			echo "Not same object";
+			return False;
+		}
+	}
+	public static function compareIntegers(array $arr1, array $arr2){
+		$a1 = integerToBinaryString($arr1);
+		$a2 = integerToBinaryString($arr2);
+		if (count($a1) === count($a2) && $a1 === $a2) {
+			echo "Integers same";
+			return True;
+		}
+		else {
+			echo "Integers not same";
+			return False;
+		}
+	}
+	public static function compareFloats(array $arr1, array $arr2){
+		$a1 = floatToBinaryString($arr1);
+		$a2 = floatToBinaryString($arr2);
+		if (count($a1) === count($a2) && $a1 === $a2) {
+			echo "Floats same";
+			return True;
+		}
+		else {
+			echo "Floats not same";
 			return False;
 		}
 	}
