@@ -1,26 +1,38 @@
 <?php
-// Конвертация строки в двоичный формат
-function stringToBinaryString(string $str) {
-    $binary = [];
 
-    foreach (str_split($str) as $char) {
-        $binary[] = sprintf('%08b', ord($char));
-    }
-    return $binary;
-}
+class PotyzhniyValidator {
 
-//
-function checkArrays(array $arr1, array $arr2){
-	if (count($arr1) === count($arr2) && $arr1 === $arr2) {
-		echo "Strings same";
-		return True;
+	public function __construct() {
+
+		// Реализовать конструктор;
 	}
-	else {
-		echo "Strings not same";
-		return False;
+	
+	// Конвертация строки в двоичный формат и создание массива для строки.
+	// Возможно стоит реализовать способ с преобразованием массива в последовательность 0 и 1.
+	function stringToBinaryString(string $str) {
+    	$binary = [];
+
+    	foreach (str_split($str) as $char) {
+        	$binary[] = sprintf('%08b', ord($char));
+    	}
+    	return $binary;
 	}
 
-}
+	// Статический метод для сравнениия массивов.
+	// Возможно стоит добавить возможность сравнивать последовательности из 1 для двух строк а именно их индексы.
+	public static function checkArrays(array $arr1, array $arr2){
+		$a1 = stringToBinaryString($arr1);
+		$a2 = stringToBinaryString($arr2);
+		if (count($a1) === count($a2) && $a1 === $a2) {
+			echo "Strings same";
+			return True;
+		}
+		else {
+			echo "Strings not same";
+			return False;
+		}
+
+	}
 
 // $str1 = stringToBinaryString($_GET['a']);
 // $str2 = stringToBinaryString($_GET['b']);
@@ -40,5 +52,5 @@ $result = checkArrays($array1, $array2);
 echo $result;
 
 //echo '</pre>';
-
+}
 ?>
