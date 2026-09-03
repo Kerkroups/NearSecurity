@@ -2,7 +2,7 @@
 
 class PotyzhniyValidator {
 
-	public function __construct() {
+	public function __construct($data1, $data2) {
 
 		private $data1;
 		private $data2;
@@ -14,14 +14,19 @@ class PotyzhniyValidator {
 	
 	// Конвертация строки в двоичный формат и создание массива для строки.
 	// Возможно стоит реализовать способ с преобразованием массива в последовательность 0 и 1.
-	protected function objectToBinaryString(object $int) {
-    	$binary = [];
+	protected function objectToBinaryString(object $obj) {
+    	// $binary = serialize($obj);
+		// OR
+		// $binary = json_decode(json_encode($obj), true);
+		// OR
+		// $binary = (array) $obj;
+		
 
     	// ...
     	return $binary;
 	}
 	
-	protected function floatToBinaryString(float $int) {
+	protected function floatToBinaryString(float $flt) {
     	$binary = [];
 
     	// ...
@@ -88,38 +93,17 @@ class PotyzhniyValidator {
 	public static function compareObject(array $arr1, array $arr2){
 		$a1 = objectToBinaryString($arr1);
 		$a2 = objectToBinaryString($arr2);
-		if (count($a1) === count($a2) && $a1 === $a2) {
-			echo "Same object";
-			return True;
-		}
-		else {
-			echo "Not same object";
-			return False;
-		}
+		// TODO
 	}
 	public static function compareIntegers(array $arr1, array $arr2){
 		$a1 = integerToBinaryString($arr1);
 		$a2 = integerToBinaryString($arr2);
-		if (count($a1) === count($a2) && $a1 === $a2) {
-			echo "Integers same";
-			return True;
-		}
-		else {
-			echo "Integers not same";
-			return False;
-		}
+		// TODO
 	}
 	public static function compareFloats(array $arr1, array $arr2){
 		$a1 = floatToBinaryString($arr1);
 		$a2 = floatToBinaryString($arr2);
-		if (count($a1) === count($a2) && $a1 === $a2) {
-			echo "Floats same";
-			return True;
-		}
-		else {
-			echo "Floats not same";
-			return False;
-		}
+		// TODO
 	}
 
 // $str1 = stringToBinaryString($_GET['a']);
