@@ -400,8 +400,16 @@ class@anonymous Object ( [title] => Hello, World! )
 ## Интерфейсы  
 
 
-
 ## Трейты  
+
+## Опасные функции  
+
+  - [call_user_func](https://www.php.net/manual/en/function.call-user-func.php) - принимает callback функцию первым параметром, остальные параметры функции  - аргуметны функции callback.
+  - [call_user_func_array](call_user_func_array) - принимает callback функцию первым параметром и массив с аргументами callback функции.
+  - system
+  - shell_exec
+  - passthru
+  - proc_open
 
 
 ## Источники:  
