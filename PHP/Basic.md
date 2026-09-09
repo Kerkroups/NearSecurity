@@ -251,6 +251,22 @@ $check($errors);
 **escapeshellargs()**  
 **escapeshellcmd()**  
 
+**SQL injection**:
+  - addslashes()
+  - mysqli::real_escape_string()
+  - mysqli::escape_string()
+  - mysql_real_escape_string()
+  - SQLite3::escapeString()
+
+**Строка, обработанная с помощью вышеуказанных функций, не может использоваться напрямую для построения SQL-запросов; её необходимо заключить в кавычки перед добавлением в SQL-запрос, иначе это может привести к SQL-инъекции.**  
+
+  -  PDO::quote() - экранирует специальные символы и добавляет кавычки.  
+  -  PDO::prepare() - Предварительная обработка SQL-запросов — эффективная защита от SQL-инъекций (рекомендуется).
+  -  intval() - type casting.
+  -  floatval() - type casting.
+  -  floor() - round fractions down.  
+  -  (int)$input - type casting.  
+
 ## Сериализация / Десериализация:  
 ```
 // Only allow specific classes to instantiate
