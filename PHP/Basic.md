@@ -412,12 +412,52 @@ class@anonymous Object ( [title] => Hello, World! )
 
 ## Опасные функции  
 
-  - [call_user_func](https://www.php.net/manual/en/function.call-user-func.php) - принимает callback функцию первым параметром, остальные параметры функции  - аргуметны функции callback.
-  - [call_user_func_array](call_user_func_array) - принимает callback функцию первым параметром и массив с аргументами callback функции.
   - system
-  - shell_exec
+  - shell_exec, ``(reverse quotation marks)
   - passthru
   - proc_open
+  - exec
+  - popen
+  - pcntl_open
+
+**Code injection / file inclusion**  
+  - eval
+  - assert
+  - [call_user_func](https://www.php.net/manual/en/function.call-user-func.php) - принимает callback функцию первым параметром, остальные параметры функции  - аргуметны функции callback. ```call_user_func('system', 'id')```
+  - [call_user_func_array](call_user_func_array) - принимает callback функцию первым параметром и массив с аргументами callback функции. ```call_user_func_array('file_put_contents', ['hacked.txt', 'pwned']))```
+  - preg_raplace - Когда в функции preg_replace используется модификатор /e, а исходная строка находится под контролем, возможно выполнение кода PHP.
+  - include
+  - require
+  - require_once
+  - by_once
+
+**File read / SSRF**  
+  - file_get_contents
+  - curl_setopt / curl_exec
+  - fsockopen - открывает соединение по TCP/UDP.
+  - readfile - читает файл и записывает в выходящий буффер.
+  - fopen/fread/fgetss/fgetcsv/fpassthru/fscan - открывает файл или URL для чтения потока данных.
+  - file
+  - highligth_file / show_source
+  - parse_ini_file - читает и парсит .ini файл.
+  - simplexml_load_file - открывает документ как XML данные.
+
+**File upload / move / other**  
+  - move_uploaded_file
+  - rename
+  - mkdir
+  - rmdir
+  - unlink
+  - copy
+  - fopen / fputs/ fwrite
+  - link
+  - symlink
+  - tmpfile
+  - extractTo
+  - DOMDocument / loadXML / simplexml_import_dom
+  - simplexml_load_string
+  - simplexml_load_file
+  - unserialize
 
 
 ## Источники:  
