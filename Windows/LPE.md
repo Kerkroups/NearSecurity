@@ -32,6 +32,9 @@ ForEach-Object {
 **Модифицировать сервис**: ```sc.exe config "ServiceName" binPath="\"<PATH_TO_BINARY>\""```  
 
 **Список значений доступов для сервисов**: https://learn.microsoft.com/en-us/windows/win32/services/service-security-and-access-rights  
+**Дополнительная информация**  
+    - [Check service note](https://github.com/sailay1996/awesome_windows_logical_bugs/blob/master/check_services_note.txt)  
+    - [DACL Check VBS](https://github.com/sailay1996/awesome_windows_logical_bugs/blob/master/dacl_check.vbs)  
 
 ## Symlinks:  
 Symlink может указывает на файл (объект).
