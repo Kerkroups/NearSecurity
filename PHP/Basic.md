@@ -442,6 +442,7 @@ class@anonymous Object ( [title] => Hello, World! )
   - [call_user_func](https://www.php.net/manual/en/function.call-user-func.php) - принимает callback функцию первым параметром, остальные параметры функции  - аргуметны функции callback. ```call_user_func('system', 'id')```
   - [call_user_func_array](call_user_func_array) - принимает callback функцию первым параметром и массив с аргументами callback функции. ```call_user_func_array('file_put_contents', ['hacked.txt', 'pwned']))```
   - preg_raplace - Когда в функции preg_replace используется модификатор /e, а исходная строка находится под контролем, возможно выполнение кода PHP.
+  - array_map() - array_map('system', $arr); $arr = ["id"];
   - include
   - require
   - require_once
