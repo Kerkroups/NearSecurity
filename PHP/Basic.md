@@ -189,7 +189,18 @@ bool in_array(mixed $value, array $arr [, bool $strict = false])
 ```
 bool array_key_exist(mixed $key, array $array)
 ```
-Функция возвращает true, если ключ $key найден в массиве $array.  
+Функция возвращает true, если ключ $key найден в массиве $array. Отличия array_key_exist() от isset() / !empty():  
+```
+$map = [
+'foo' => 1,
+'bar' => null,
+'foobar' => '',
+];
+```
+Функция isset() рассматривает элемент с нулевым значением как несуществующий;
+  - Функция !empty() рассматривает элемент с нулевым значением как несуществующий для любого элемента, значение которого равно false (при этом используется слабое сравнение; например, значения null, '' и 0 рассматриваются функцией !empty() как false);
+  - isset($map["foobar"]); возвращает true, а !empty($map["foobar"]) — false;
+  - Функции isset() и !empty() будут работать (и возвращать значение false), если переменная $map вообще не определена;
 
 Найти ключ массива по значению позволяет функция [array_search()](https://www.php.net/manual/en/function.array-search.php), которая имеет следующий синтаксис:  
 ```
