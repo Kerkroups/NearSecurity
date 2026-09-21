@@ -220,6 +220,17 @@ mixed array_search(mixed $value, array $arr [, bool $strict = false])
 **Удаление элементов массива**  
 Удаление элемента массива, как и любой другой переменной, осуществляется при помощи конструкции [unset()](https://www.php.net/manual/en/function.unset.php).  
 
+**Объединение элементов массива с помощью строки**:  
+[implode()](https://www.php.net/manual/en/function.implode.php) - объединяет все значения массива, но теряет всю информацию о ключах.  
+```
+$arr = ['a' => "AA", 'b' => "BB", 'c' => "CC"];
+echo implode(" ", $arr); // AA BB CC
+```  
+```
+$arr = ['a' => "AA", 'b' => "BB", 'c' => "CC"];
+echo implode(" ", array_keys($arr)); // a b c
+```  
+
 ## Функции  
 
 **Динамчическое имя функции**  
