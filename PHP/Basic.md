@@ -486,6 +486,7 @@ class@anonymous Object ( [title] => Hello, World! )
   - preg_raplace - Когда в функции preg_replace используется модификатор /e, а исходная строка находится под контролем, возможно выполнение кода PHP.
   - array_map() - array_map('system', $arr); $arr = ["id"];
   - array_filter() - array_filter($arr, 'system'); $uids = ["id"];
+  - array_reduce();
   - include
   - require
   - require_once
