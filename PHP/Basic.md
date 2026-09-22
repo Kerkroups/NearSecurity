@@ -576,6 +576,36 @@ string(13) "simple string"
 string(8) "no error"
 ```  
 
+## XML  
+
+**Чтение XML с помощью DOMDocument**:  
+1. Из строки:
+```
+$doc = new DOMDocument();
+$doc->loadXML($string);
+```  
+2. Из файла:
+```
+$doc = new DOMDocument();
+$doc->load('books.xml'); // указать путь к файлу.
+```
+
+**Чтение XML с помощью SimpleXML**:  
+
+1. Из DOMDocument:
+```
+$xmlElement = simplexml_import_dom($domNode);
+```
+2. Из файла:
+```
+$xmlElement = simplexml_load_file($filename);
+```
+3. Из строки:
+```
+$xmlElement = simplexml_load_string($xmlString);
+```
+
+
 
 ## Источники:  
 Самоучитель PHP 7  
