@@ -531,7 +531,7 @@ var_dump($var);
 
 Чтобы вернуть ассоциативный массив вместо объекта необходимо передать значение true в качестве второго параметра функции json_decode().  
 ```
-$json_string = '{"name" => "John", "email" => "john@mail.local", "isAdmin"=> true, "colors"=>["red", "green"]}';
+$json_string = '{"name":"John", "email":"john@mail.local", "isAdmin":true, "colors":["red", "green"]}';
 $var = json_decode($json_string, true);
 var_dump($var);
 ```
