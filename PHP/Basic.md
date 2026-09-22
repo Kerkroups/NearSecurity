@@ -520,6 +520,62 @@ class@anonymous Object ( [title] => Hello, World! )
   - simplexml_load_file
   - unserialize
 
+## JSON  
+**Декодирование JSON**:
+Функция [json_decode()](https://www.php.net/manual/en/function.json-decode.php#refsect1-function.json-decode-parameters) возвращает объект класса [stdClass](https://www.php.net/manual/en/class.stdclass.php) если JSON строка является словарем или массивом. Типы элементов в JSON будут преобразованы в их эквиваленты в PHP.  
+```
+$json_string = '{"name" => "John", "email" => "john@mail.local", "isAdmin"=> true, "colors"=>["red", "green"]}';
+$var = json_decode($json_string);
+var_dump($var);
+```
+
+Чтобы вернуть ассоциативный массив вместо объекта необходимо передать значение true в качестве второго параметра функции json_decode().  
+```
+$json_string = '{"name" => "John", "email" => "john@mail.local", "isAdmin"=> true, "colors"=>["red", "green"]}';
+$var = json_decode($json_string, true);
+var_dump($var);
+```
+Третий параметр функции json_decode() определяет грубину рекурсии (знечение по умолчанию 521), т.е. количество количество вложенных объектов внутри исходного объекта, который необходимо декодировать.  
+
+json_deocde() вернет NULL если данные не могут быть конвертированны:  
+```
+$json = "{'name': 'Jeff', 'age': 20 }" ; // invalid json
+$person = json_decode($json);
+echo $person->name; // Notice: Trying to get property of non-object: returns null
+echo json_last_error();
+# 4 (JSON_ERROR_SYNTAX)
+echo json_last_error_msg();
+# unexpected character
+```  
+
+**Преобразование в JSON**:  
+Функция [json_encode()](https://www.php.net/manual/en/function.json-encode.php) преобразует массив или объект, имплементирующий интерфейс JsonSerializable, в JSON строку. Функция возвращает true если преобразование прошло успешно и false если преобразование завершилось ошибкой.  
+```
+$array = [
+  "name" => "John",
+  "email" => "john@mail.local",
+  "isAdmin" => true,
+  "colors" => ["red", "green"],
+  "data" = [0 => "foo", 3 => "bar"]
+];
+$json = json_encode($array);
+var_dump($json);
+echo $json;
+```
+В качестве второго аргумента функции json_encode() могут использоваться константы из данного списка: https://www.php.net/manual/en/json.constants.php.  
+
+
+**NOTE**:  
+Строка не входящая в массив или объект не предусмотрена стандартом RFC 4627.  
+```
+$json = json_decode('"simple string"', true);
+var_dump($json, json_last_erro_msg());
+
+// Output
+string(13) "simple string"
+string(8) "no error"
+```  
+
 
 ## Источники:  
 Самоучитель PHP 7  
