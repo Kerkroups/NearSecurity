@@ -605,6 +605,37 @@ $xmlElement = simplexml_load_file($filename);
 $xmlElement = simplexml_load_string($xmlString);
 ```
 
+## File handling  
+
+**Raw direct IO**:  
+```
+ file_get_contents($path) - read file;
+ file_put_contents($path, $contents) - write data to file;
+```  
+
+**CSV IO**:  
+```
+fgetcsv($file, $length, $separator) - read CSV file;
+```
+
+**Read a file to stdout directly**:  
+```readfile``` - копирует файл в output буфер.  
+```
+$file = "image.gif";
+readfile($file);
+```
+
+**Read file from a file pointer**:  
+```
+$fh = fopen("file.txt", "rb");
+fseek($fh, -1024, SEEK_END);
+fpassthru($fh);
+```
+
+**Check file type**:  
+Для проверки типов файла в PHP есть функция filetype(). Возвращаемые функцией типы файла:  
+``` fifo, char, dir, block, link, file, socket, unknown.  ```  
+
 
 
 ## Источники:  
