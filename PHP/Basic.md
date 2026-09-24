@@ -636,6 +636,45 @@ fpassthru($fh);
 Для проверки типов файла в PHP есть функция filetype(). Возвращаемые функцией типы файла:  
 ``` fifo, char, dir, block, link, file, socket, unknown.  ```  
 
+## URL parsing  
+ - parse_url()
+ - explode()
+ - basename()
+
+
+## Reading request data  
+
+**Чтение "сырого" POST запроса**:  
+```
+$rawrequest = file_get_contents(""php://input");
+$decode = json_decode($rawrequest); // JSON data in POST request.
+```
+Как правило с php://input обрабатываются запросы в формате XML и JSON.  
+
+**Чтение POST запроса**:  
+Данные POST запроса хранятся в суперглобальной переменной $_POST и хранятся в виде ассоциативного массива. Существование элемента запроса можно проверить с помощью функций isset() и empty().
+
+
+**Чтение GET запроса**:  
+Данные GET запроса хранятся в суперглобальной переменной $_GET и хранятся в виде ассоциативного массива. Существование элемента запроса можно проверить с помощью функций isset() и empty().  
+
+**Загрузка файлов с помощью метода PUT**:  
+
+```
+<?php
+/* PUT data comes in on the stdin stream */
+$putdata = fopen("php://input", "r");
+/* Open a file for writing */
+$fp = fopen("putfile.ext", "w");
+/* Read the data 1 KB at a time
+and write to the file */
+while ($data = fread($putdata, 1024))
+fwrite($fp, $data);
+/* Close the streams */
+fclose($fp);
+fclose($putdata);
+?>
+```  
 
 
 ## Источники:  
