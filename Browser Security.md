@@ -61,3 +61,8 @@ Sandboxing - изолирует third-party контент и ограничив
 **Find DOM XSS via DevTools**: https://youtu.be/CNNCCgDkt5k?si=6DkUv5WcJmBYfWI2  
 
 **Referer leak**: https://youtu.be/uDigwNal7GQ?si=qCswM_7IlInaZO3R  
+
+## Интересные API  
+- https://developer.mozilla.org/ru/docs/Web/API/Beacon_API
+- https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API
+- https://developer.mozilla.org/en-US/docs/Web/API/File_API
